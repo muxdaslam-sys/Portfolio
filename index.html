@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Aslam | .NET Full Stack Developer &amp; Distributed Systems Engineer</title>
+  <meta name="description" content="Portfolio of Muhammed Aslam, a high-concurrency .NET 8, Angular 19, and SignalR Full Stack Developer specializing in real-time enterprise architectures, sub-millisecond database indexing, and cloud CI/CD.">
+  <meta name="keywords" content=".NET Full Stack Developer, ASP.NET Core 8, Angular 19, SignalR, C#, SQL Server, EF Core, RxJS, Azure, Muhammed Aslam, VitalQ, JobNest">
+  <meta name="author" content="Muhammed Aslam">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Muhammed Aslam | .NET Full Stack Developer">
+  <meta property="og:description" content="High-concurrency enterprise web systems engineered with .NET 8, Angular 19, and SignalR WebSockets. Explore live projects and interactive architecture simulations.">
+  <meta property="og:image" content="assets/images/aslam-blazer.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Standalone Production Minified Tailwind CSS -->
+  <link rel="stylesheet" href="assets/css/tailwind.min.css">
+
+  <!-- Custom Production Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#07090e] text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-white relative min-h-screen overflow-x-clip">
+
+  <!-- Background Interactive Cyber Canvas -->
+  <canvas id="cyberCanvas"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer"></div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center font-heading font-extrabold text-black text-base sm:text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          MA
+        </div>
+        <div>
+          <span class="font-heading font-bold text-sm sm:text-base tracking-wide text-white group-hover:text-cyan-400 transition-colors">MUHAMMED ASLAM</span>
+          <div class="flex items-center gap-1.5">
+            <span class="pulse-dot"></span>
+            <span class="text-[10px] sm:text-[11px] font-medium text-emerald-400">Notice: 30 Days (Negotiable)</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium text-slate-300">
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Tech Matrix</a>
+        <a href="#architecture" class="hover:text-cyan-400 transition-colors">Architecture</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Why Hire Me Button -->
+        <button onclick="openRecruiterPitchModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 border border-amber-500/40 text-amber-300 text-xs font-semibold shadow-sm transition-all hover:scale-105">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Why Hire Me</span>
+        </button>
+
+        <!-- Command Palette Trigger (Desktop) -->
+        <button id="cmdPaletteTrigger" class="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-700/60 text-slate-400 text-xs font-mono transition-all">
+          <span>Menu</span>
+          <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-[10px] text-cyan-400">Ctrl+K</kbd>
+        </button>
+
+        <!-- Sound FX Toggle -->
+        <button id="soundToggleBtn" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-cyan-400 text-xs font-medium transition-all" title="Toggle Interactive Audio FX">
+          <span id="soundIcon" class="flex items-center gap-0.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+          </span>
+          <span id="soundLabel" class="hidden sm:inline">Audio OFF</span>
+        </button>
+
+        <!-- Download CV Button -->
+        <button onclick="downloadResume()" class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-semibold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 active:scale-95">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>CV</span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 focus:outline-none transition-colors" aria-label="Open Navigation Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Navigation Drawer -->
+    <div id="mobileMenuDrawer" class="hidden menu-closed md:hidden fixed inset-x-0 top-18 bg-slate-950 border-b border-slate-800 shadow-2xl p-6 space-y-5 z-40">
+      <nav class="flex flex-col space-y-4 text-base font-medium text-slate-300">
+        <a href="#projects" class="mobile-nav-link hover:text-cyan-400 transition-colors flex items-center justify-between">
+          <span>Featured Projects</span>
+          <span class="text-xs text-slate-500 font-mono">03 Systems</span>
+        </a>
+        <a href="#skills" class="mobile-nav-link hover:text-cyan-400 transition-colors flex items-center justify-between">
+          <span>Tech Competencies</span>
+          <span class="text-xs text-slate-500 font-mono">.NET &amp; Angular</span>
+        </a>
+        <a href="#architecture" class="mobile-nav-link hover:text-cyan-400 transition-colors flex items-center justify-between">
+          <span>System Architecture</span>
+          <span class="text-xs text-slate-500 font-mono">Real-Time</span>
+        </a>
+        <a href="#experience" class="mobile-nav-link hover:text-cyan-400 transition-colors flex items-center justify-between">
+          <span>Experience &amp; Career</span>
+          <span class="text-xs text-slate-500 font-mono">Timeline</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link hover:text-cyan-400 transition-colors flex items-center justify-between">
+          <span>Direct Contact</span>
+          <span class="text-xs text-slate-500 font-mono">Hire</span>
+        </a>
+      </nav>
+
+      <div class="pt-4 border-t border-slate-800/80 flex flex-col gap-2.5">
+        <button onclick="openRecruiterPitchModal()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Why Hire Me</span>
+          <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono">30d Notice</span>
+        </button>
+        <button onclick="toggleTerminal()" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 text-xs font-mono flex items-center justify-center gap-2">
+          <span>&gt;_ Open Terminal CLI</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION
+       ========================================================================= -->
+  <section id="hero" class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left Column: Bio & Value Proposition -->
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+          
+          <!-- Top Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-semibold text-cyan-300 shimmer-badge shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span>Enterprise .NET 8 &amp; Angular 19 Full-Stack Developer</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white leading-tight">
+            Engineering High-Concurrency <br class="hidden sm:inline">
+            <span class="gradient-text-cyan">Real-Time Systems</span> &amp; <br class="hidden sm:inline">
+            Sub-Millisecond APIs
+          </h1>
+
+          <!-- Rotating Subtitle -->
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-base sm:text-xl font-mono text-slate-300 min-h-[30px]">
+            <span class="text-cyan-400 font-bold">&gt;</span>
+            <span id="typingRole" class="text-cyan-300 border-r-2 border-cyan-400 pr-1 animate-pulse"></span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-sm sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            I architect resilient, high-throughput web applications with 
+            <span class="text-white font-medium">C#, ASP.NET Core 8 Web API</span>, 
+            <span class="text-white font-medium">Angular 19 Signals</span>, and 
+            <span class="text-white font-medium">SignalR WebSockets</span>. From eliminating concurrency race conditions via RxJS mutexes to indexing SQL databases for <span class="text-cyan-400 font-medium">&lt;0.5ms memory seeks</span>, I build software that performs under peak load.
+          </p>
+
+          <!-- Primary CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-black font-bold text-xs sm:text-sm shadow-xl shadow-cyan-500/25 transition-all hover:scale-105 active:scale-95">
+              <span>Explore 3 Flagship Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+
+            <button onclick="openRecruiterPitchModal()" class="inline-flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl solid-card hover:bg-slate-800/80 text-slate-200 text-xs sm:text-sm font-semibold transition-all hover:border-amber-500/50 hover:text-amber-300">
+              <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Why Hire Me</span>
+              <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono">30d Notice</span>
+            </button>
+
+            <button onclick="toggleTerminal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-3.5 rounded-xl solid-card hover:bg-slate-800/80 text-slate-400 hover:text-cyan-400 text-xs sm:text-sm font-mono transition-all">
+              <span>&gt;_ Terminal</span>
+            </button>
+
+          </div>
+
+          <!-- Contact Quick-Bar -->
+          <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs text-slate-400">
+            
+            <button onclick="copyEmail()" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-slate-300 transition-all">
+              <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>muxd.aslam@gmail.com</span>
+              <span class="text-[10px] text-cyan-400 bg-cyan-500/10 px-1 rounded">Copy</span>
+            </button>
+
+            <a href="https://wa.me/919061651957?text=Hi%20Muhammed%20Aslam,%20I%20reviewed%20your%20portfolio" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/40 text-slate-300 transition-all">
+              <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <a href="https://github.com/muxdaslam-sys" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/40 text-slate-300 transition-all">
+              <svg class="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://linkedin.com/in/muxd-aslam" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/40 text-slate-300 transition-all">
+              <svg class="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive 3D Portrait & Look Switcher -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-[320px] sm:max-w-[380px]">
+            
+            <!-- Outer Glow Aura -->
+            <div class="absolute -inset-2 bg-gradient-to-tr from-cyan-500/25 via-blue-500/20 to-purple-600/30 rounded-3xl blur-2xl opacity-75 animate-pulse"></div>
+
+            <!-- Responsive 3D Flip Card Container -->
+            <div class="flip-card-wrapper h-[340px] sm:h-[420px] lg:h-[460px]">
+              <div id="heroCardInner" class="flip-card-inner relative h-full">
+                
+                <!-- FRONT: Executive Studio Blazer Look -->
+                <div class="flip-card-front solid-card border border-cyan-500/30 p-2 sm:p-2.5 bg-slate-900/90 shadow-2xl">
+                  <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950">
+                    <img src="assets/images/aslam-blazer.jpg" alt="Muhammed Aslam: Executive Studio Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="eager">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    
+                    <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                      <div class="flex items-center justify-between">
+                        <div>
+                          <h3 class="text-sm sm:text-base font-bold text-white">Muhammed Aslam</h3>
+                          <p class="text-[11px] sm:text-xs text-cyan-400 font-mono">.NET Full Stack Developer</p>
+                        </div>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-semibold">Serving 30d Notice</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- BACK: Cinematic Turtleneck Look -->
+                <div class="flip-card-back solid-card border border-purple-500/40 p-2 sm:p-2.5 bg-slate-900/90 shadow-2xl">
+                  <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950">
+                    <img src="assets/images/aslam-turtleneck.jpg" alt="Muhammed Aslam: Cinematic Tech Lead Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="eager">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                    
+                    <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                      <div class="flex items-center justify-between">
+                        <div>
+                          <h3 class="text-sm sm:text-base font-bold text-white">Muhammed Aslam</h3>
+                          <p class="text-[11px] sm:text-xs text-purple-400 font-mono">Full-Stack Engineer</p>
+                        </div>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-[10px] font-semibold">Architecture</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="absolute top-2 right-2 sm:-top-3 sm:-right-3 floating-chip z-20">
+              <div class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-900/95 border border-cyan-500/40 shadow-xl flex items-center gap-1.5 sm:gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span class="text-[11px] sm:text-xs font-bold text-cyan-300 font-mono">.NET 8 &amp; C#</span>
+              </div>
+            </div>
+
+            <div class="absolute bottom-2 left-2 sm:-bottom-4 sm:-left-4 floating-chip-delayed z-20">
+              <div class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-slate-900/95 border border-purple-500/40 shadow-xl flex items-center gap-1.5 sm:gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 5.5l1.5 13.5L12 22l8.5-3L22 5.5 12 2zm0 2.8l6.3 2.2-1 9-5.3 1.9-5.3-1.9-1-9L12 4.8zm-1.2 3.6L7.5 16h2.2l.7-2h3.2l.7 2h2.2L13.2 8.4h-2.4zm1.2 2.6l1.1 3.2h-2.2l1.1-3.2z"/></svg>
+                <span class="text-[11px] sm:text-xs font-bold text-purple-300 font-mono">Angular 19 Signals</span>
+              </div>
+            </div>
+
+            <!-- Flip Switcher Button -->
+            <div class="mt-4 flex justify-center">
+              <button id="lookSwitchBtn" class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-500/50 text-xs font-semibold text-slate-300 hover:text-cyan-400 shadow-lg transition-all hover:scale-105 active:scale-95">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <span id="currentLookBadge">Toggle Look: Blazer / Turtleneck</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       INFINITE AUTO-SLIDING SKILLS MARQUEE (DUAL TRACK HARDWARE-ACCELERATED)
+       ========================================================================= -->
+  <section class="py-8 bg-slate-950/90 border-y border-slate-800/80 relative z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-4 flex items-center justify-between">
+      <span class="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        Core Tech Stack &amp; Enterprise Toolchain
+      </span>
+      <span class="text-[11px] text-slate-500 font-mono hidden sm:inline">Pause on hover</span>
+    </div>
+
+    <!-- Track 1: Frameworks & Core Languages (Auto-Scrolling Left) -->
+    <div class="marquee-wrapper mb-3">
+      <div class="marquee-track-left gap-4 py-1">
+        
+        <!-- C# -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.2l7.8 3.9v7.8L12 19.8 4.2 15.9V8.1L12 4.2zM9.5 9a3 3 0 000 6h1.5a1 1 0 000-2H9.5a1 1 0 010-2h1.5a1 1 0 000-2H9.5zm5 0h1.5v2h-1.5v2h1.5v2h-1.5v-2h-2v2h-1.5v-2h2v-2h-2v-2h1.5v2h2V9z"/></svg>
+          <span class="font-bold text-white">C# 12</span>
+        </div>
+
+        <!-- .NET 8 -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14.5H9V9.5h2v7zm4 0h-2V9.5h2v7z"/></svg>
+          <span class="font-bold text-white">ASP.NET Core 8 Web API</span>
+        </div>
+
+        <!-- Angular 19 -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 5.5l1.5 13.5L12 22l8.5-3L22 5.5 12 2zm0 2.8l6.3 2.2-1 9-5.3 1.9-5.3-1.9-1-9L12 4.8zm-1.2 3.6L7.5 16h2.2l.7-2h3.2l.7 2h2.2L13.2 8.4h-2.4zm1.2 2.6l1.1 3.2h-2.2l1.1-3.2z"/></svg>
+          <span class="font-bold text-white">Angular 19 Signals</span>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm14.3 11.2c-.3-.2-.8-.4-1.4-.5-.6-.2-.9-.3-1.1-.5-.2-.1-.2-.3-.2-.5 0-.2.1-.4.3-.5.2-.1.5-.2.9-.2.4 0 .7.1 1 .2.3.1.5.3.7.5l1.1-1.3c-.3-.3-.7-.6-1.2-.8-.5-.2-1.1-.3-1.7-.3-.7 0-1.3.1-1.8.4-.5.3-.9.6-1.2 1.1-.3.5-.4 1-.4 1.6 0 .6.2 1.1.5 1.5.3.4.9.8 1.6 1 .5.2.9.3 1.2.5.3.1.4.3.4.6 0 .3-.1.5-.4.7-.3.2-.6.3-1.1.3-.5 0-1-.1-1.4-.4-.4-.3-.8-.7-1-1.2l-1.3 1.1c.3.6.8 1.1 1.4 1.5.6.4 1.4.6 2.3.6.8 0 1.5-.2 2.1-.5.6-.3 1-.8 1.3-1.3.3-.6.5-1.2.5-1.9 0-.8-.3-1.5-.9-2.1zm-8.8-4.7H6v1.9h2.3V18h2.3V9.5h2.3V7.5H8.5z"/></svg>
+          <span class="font-bold text-white">TypeScript 5</span>
+        </div>
+
+        <!-- SignalR -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span class="font-bold text-white">SignalR WebSockets</span>
+        </div>
+
+        <!-- SQL Server -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 2c4.41 0 8 1.57 8 2.5S16.41 9 12 9 4 7.43 4 6.5 7.59 4 12 4zm8 13.5c0 .93-3.59 2.5-8 2.5s-8-1.57-8-2.5V15c1.9 1.18 4.77 1.8 8 1.8s6.1-.62 8-1.8v2.5zm0-4c0 .93-3.59 2.5-8 2.5s-8-1.57-8-2.5V11c1.9 1.18 4.77 1.8 8 1.8s6.1-.62 8-1.8v2.5z"/></svg>
+          <span class="font-bold text-white">Microsoft SQL Server</span>
+        </div>
+
+        <!-- Entity Framework Core -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3M4 7h16m-8 4v6"/></svg>
+          <span class="font-bold text-white">Entity Framework Core 8</span>
+        </div>
+
+        <!-- RxJS -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-pink-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 110 14 7 7 0 010-14zm-1 3v6l5-3-5-3z"/></svg>
+          <span class="font-bold text-white">RxJS Mutex Concurrency</span>
+        </div>
+
+        <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.2l7.8 3.9v7.8L12 19.8 4.2 15.9V8.1L12 4.2zM9.5 9a3 3 0 000 6h1.5a1 1 0 000-2H9.5a1 1 0 010-2h1.5a1 1 0 000-2H9.5zm5 0h1.5v2h-1.5v2h1.5v2h-1.5v-2h-2v2h-1.5v-2h2v-2h-2v-2h1.5v2h2V9z"/></svg>
+          <span class="font-bold text-white">C# 12</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14.5H9V9.5h2v7zm4 0h-2V9.5h2v7z"/></svg>
+          <span class="font-bold text-white">ASP.NET Core 8 Web API</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 5.5l1.5 13.5L12 22l8.5-3L22 5.5 12 2zm0 2.8l6.3 2.2-1 9-5.3 1.9-5.3-1.9-1-9L12 4.8zm-1.2 3.6L7.5 16h2.2l.7-2h3.2l.7 2h2.2L13.2 8.4h-2.4zm1.2 2.6l1.1 3.2h-2.2l1.1-3.2z"/></svg>
+          <span class="font-bold text-white">Angular 19 Signals</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <span class="font-bold text-white">SignalR WebSockets</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Track 2: Architecture & Cloud (Auto-Scrolling Right) -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track-right gap-4 py-1">
+        
+        <!-- Azure App Service -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-blue-500/50 transition-colors">
+          <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 3L4 17.5h6.6L13.4 3zm1.6 4.3L11.5 13h5.4L20 21H7.8l9.7-13.7h-2.5z"/></svg>
+          <span class="font-bold text-white">Microsoft Azure Cloud</span>
+        </div>
+
+        <!-- GitHub Actions -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-purple-500/50 transition-colors">
+          <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span class="font-bold text-white">GitHub Actions CI/CD</span>
+        </div>
+
+        <!-- Filtered B-Trees -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-emerald-500/50 transition-colors">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span class="font-bold text-white">Filtered B-Tree Indexing (&lt;0.5ms)</span>
+        </div>
+
+        <!-- RESTful API Architecture -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-cyan-500/50 transition-colors">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="font-bold text-white">Symmetrical 1:1 API Contracts</span>
+        </div>
+
+        <!-- HIPAA Alignment -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-emerald-500/50 transition-colors">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span class="font-bold text-white">HIPAA Section 164.312 Security</span>
+        </div>
+
+        <!-- SOLID Architecture -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-amber-500/50 transition-colors">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          <span class="font-bold text-white">SOLID &amp; N-Tier Clean Architecture</span>
+        </div>
+
+        <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-blue-500/50 transition-colors">
+          <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 3L4 17.5h6.6L13.4 3zm1.6 4.3L11.5 13h5.4L20 21H7.8l9.7-13.7h-2.5z"/></svg>
+          <span class="font-bold text-white">Microsoft Azure Cloud</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-purple-500/50 transition-colors">
+          <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span class="font-bold text-white">GitHub Actions CI/CD</span>
+        </div>
+        <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-mono shrink-0 hover:border-emerald-500/50 transition-colors">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span class="font-bold text-white">Filtered B-Tree Indexing (&lt;0.5ms)</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BENTO METRICS GRID (RECRUITER IMPACT)
+       ========================================================================= -->
+  <section class="py-10 sm:py-12 border-b border-slate-800/80 bg-slate-950/60 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+        
+        <div class="solid-card p-4 sm:p-6 text-center tilt-element">
+          <div class="text-2xl sm:text-4xl font-heading font-extrabold text-cyan-400">10,000+</div>
+          <div class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Concurrent WebSockets</div>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1">Multi-group SignalR architecture</p>
+        </div>
+
+        <div class="solid-card p-4 sm:p-6 text-center tilt-element">
+          <div class="text-2xl sm:text-4xl font-heading font-extrabold text-emerald-400">&lt; 0.5ms</div>
+          <div class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Database Seeks</div>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1">23 Filtered B-Trees &amp; Zero Scans</p>
+        </div>
+
+        <div class="solid-card p-4 sm:p-6 text-center tilt-element">
+          <div class="text-2xl sm:text-4xl font-heading font-extrabold text-purple-400">95%</div>
+          <div class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Less Network Polling</div>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1">Event-driven WebSocket push</p>
+        </div>
+
+        <div class="solid-card p-4 sm:p-6 text-center tilt-element">
+          <div class="text-2xl sm:text-4xl font-heading font-extrabold text-amber-400">100%</div>
+          <div class="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Automated CI/CD</div>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 mt-1">GitHub Actions to Azure Cloud</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       PROJECTS SECTION (THE 3 FLAGSHIPS)
+       ========================================================================= -->
+  <section id="projects" class="py-16 sm:py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-cyan-500/30 text-xs font-semibold text-cyan-400">
+          <span>Enterprise Portfolio</span>
+        </div>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-heading font-bold text-white">
+          Production-Grade <span class="gradient-text-cyan">Technical Projects</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-base leading-relaxed">
+          Architected from scratch using clean SOLID principles, real-time event synchronization, normalized SQL Server schemas, and modern responsive frontends.
+        </p>
+      </div>
+
+      <!-- ===================================================================
+           PROJECT 1: VITALQ
+           =================================================================== -->
+      <div id="vitalq" class="solid-card p-5 sm:p-10 border-cyan-500/30 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Details -->
+          <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+            
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-2.5 sm:px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-bold font-mono">
+                FLAGSHIP 01
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
+                100% Symmetrical 1:1 Architecture
+              </span>
+            </div>
+
+            <h3 class="text-xl sm:text-3xl font-heading font-bold text-white">
+              VitalQ: Real-Time Hospital OPD Priority Queue &amp; CTAS Triage Platform
+            </h3>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              An enterprise clinical queue orchestration platform synchronizing queue positions, physician chamber pacing, and vital-sign emergency evaluation across hospital departments in real time.
+            </p>
+
+            <!-- Technical Key Metrics List -->
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>SignalR WebSocket Hub:</strong> Multi-channel groups (<code class="text-cyan-300">doctor</code>, <code class="text-cyan-300">nurse-station</code>, <code class="text-cyan-300">patient</code>, <code class="text-cyan-300">admin-dashboard</code>) with dynamic JWT access-token rotation for resilient hospital Wi-Fi reconnects.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Clinical Engine:</strong> Built with UTC-normalized pacing stopwatch (<code class="text-cyan-300">parseUtcTimestamp</code>) eliminating timezone drift, plus a 3-strike absentee/no-show protocol with mandatory audit logs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>RxJS Concurrency Mutex:</strong> Deduplicates parallel 401 refresh calls, preventing unexpected session logouts during simultaneous network bursts.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>High-Performance Database:</strong> 23 physical filtered B-Tree indexes delivering sub-millisecond (&lt;0.5ms) queries and zero table scans.</span>
+              </li>
+            </ul>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">.NET 8 Web API</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">Angular 19 Signals</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">SignalR WebSockets</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">SQL Server Express</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-amber-300">EF Core 8</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Tailwind CSS</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View VitalQ Repository</span>
+              </a>
+              <span class="text-xs text-slate-500 font-mono">1:1 Architecture &amp; Monorepo</span>
+            </div>
+
+          </div>
+
+          <!-- Right: Live CTAS Triage Simulator Interactive Widget -->
+          <div class="lg:col-span-5 w-full">
+            <div class="terminal-window p-4 sm:p-5 border border-cyan-500/40 relative">
+              
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></span>
+                  <span class="text-xs font-mono text-cyan-400 font-bold ml-1.5">VitalQ: CTAS Triage Engine</span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800">Live Simulator</span>
+              </div>
+
+              <!-- Simulator Controls -->
+              <div class="space-y-3.5 pt-3.5 text-xs font-mono">
+                
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Oxygen Saturation (SpO2):</span>
+                    <span id="valSpo2" class="text-cyan-400 font-bold">98%</span>
+                  </div>
+                  <input type="range" id="simSpo2" min="75" max="100" value="98" class="w-full bg-slate-800 rounded-lg cursor-pointer">
+                  <div class="flex justify-between text-[10px] text-slate-500 mt-0.5">
+                    <span>Critical &lt;90%</span>
+                    <span>Normal 95-100%</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Heart Rate (Pulse):</span>
+                    <span id="valHr" class="text-cyan-400 font-bold">78 bpm</span>
+                  </div>
+                  <input type="range" id="simHr" min="40" max="170" value="78" class="w-full bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Systolic Blood Pressure:</span>
+                    <span id="valBp" class="text-cyan-400 font-bold">120 mmHg</span>
+                  </div>
+                  <input type="range" id="simBp" min="70" max="210" value="120" class="w-full bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Reported Pain Acuity:</span>
+                    <span id="valPain" class="text-cyan-400 font-bold">2/10</span>
+                  </div>
+                  <input type="range" id="simPain" min="0" max="10" value="2" class="w-full bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <!-- Evaluated Result Box -->
+                <div class="p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2 mt-3">
+                  <div class="text-[10px] text-slate-400">Algorithmic Outcome:</div>
+                  <div id="simTriageBadge" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide border ctas-badge-3 text-emerald-400 border-emerald-500/50">
+                    CTAS Level 3: URGENT / ROUTINE (Code Green)
+                  </div>
+                  <div class="pt-0.5 text-[11px] text-slate-300 space-y-0.5">
+                    <div>Station: <span id="simStation" class="text-cyan-300 font-medium">OPD General Waiting Hall (Standard Queue)</span></div>
+                    <div>Wait Est.: <span id="simWait" class="text-slate-400">~ 20 - 30 mins (Standard Aging Order)</span></div>
+                  </div>
+                </div>
+
+                <p class="text-[10px] text-slate-500 italic text-center">
+                  Drag the sliders above to trigger instant triage reassessment.
+                </p>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           PROJECT 2: JOBNEST
+           =================================================================== -->
+      <div id="jobnest" class="solid-card p-5 sm:p-10 border-blue-500/30 relative">
+        <div id="jobNestCardContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Details -->
+          <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+            
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-2.5 sm:px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 text-xs font-bold font-mono">
+                FLAGSHIP 02
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-medium border border-cyan-500/20">
+                Deployed on Azure App Service
+              </span>
+            </div>
+
+            <h3 class="text-xl sm:text-3xl font-heading font-bold text-white">
+              JobNest: Modern Recruitment &amp; Applicant Tracking Platform
+            </h3>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              An enterprise job portal and recruiter ATS engineered with ASP.NET MVC 5, Entity Framework 6, and Microsoft SQL Server. Features dual role-based workflows, instantaneous candidate filtering, and a hardened resume ingestion pipeline.
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Interactive Recruiter ATS:</strong> AJAX-driven candidate status updates (<code class="text-blue-300">Applied</code>, <code class="text-blue-300">Shortlisted</code>, <code class="text-blue-300">Rejected</code>, <code class="text-blue-300">Hired</code>) with zero page reloads.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Secure File Pipeline:</strong> Rigorous server-side file inspection: MIME verification, 5MB file restrictions, and randomized GUID obfuscation to prevent upload attacks.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Cloud CI/CD Workflow:</strong> Automated GitHub Actions pipeline compiling MSBuild Release packages and deploying to Microsoft Azure.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Database Optimization:</strong> Normalized SQL Server schema with Entity Framework 6 and high-throughput stored procedures (<code class="text-blue-300">CompanyOperations</code>, <code class="text-blue-300">EmployeeOperations</code>).</span>
+              </li>
+            </ul>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">ASP.NET MVC 5</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">C# 8.0</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">Entity Framework 6</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">SQL Server (Stored Procs)</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">Azure App Service</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-amber-300">GitHub Actions CI/CD</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a href="https://jobnest-e8gwccfzgmgbdthe.southindia-01.azurewebsites.net/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-blue-500/20 transition-all hover:scale-105">
+                <span>Visit Azure Live Demo</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              <a href="https://github.com/muxdaslam-sys/JobNest" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl solid-card hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold transition-all">
+                <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>GitHub Source</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right: Interactive ATS Progression Simulator -->
+          <div class="lg:col-span-5 w-full">
+            <div class="terminal-window p-4 sm:p-5 border border-blue-500/40 relative">
+              
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></span>
+                  <span class="text-xs font-mono text-blue-400 font-bold ml-1.5">JobNest: ATS Live Console</span>
+                </div>
+                <span id="atsStatusBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                  Applied
+                </span>
+              </div>
+
+              <!-- Pipeline Progression Visualizer -->
+              <div class="pt-3.5 space-y-3.5">
+                
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 text-[10px] font-mono">
+                  <div class="ats-step text-center py-1.5 rounded border border-slate-700 bg-slate-800 text-slate-400 transition-all">1. Applied</div>
+                  <div class="ats-step text-center py-1.5 rounded border border-slate-700 bg-slate-800 text-slate-400 transition-all">2. Shortlist</div>
+                  <div class="ats-step text-center py-1.5 rounded border border-slate-700 bg-slate-800 text-slate-400 transition-all">3. Interview</div>
+                  <div class="ats-step text-center py-1.5 rounded border border-slate-700 bg-slate-800 text-slate-400 transition-all">4. Offer</div>
+                  <div class="ats-step col-span-2 sm:col-span-1 text-center py-1.5 rounded border border-slate-700 bg-slate-800 text-slate-400 transition-all">5. Hired</div>
+                </div>
+
+                <!-- Recruiter Audit Log Preview -->
+                <div class="p-3 sm:p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs">
+                  <div class="text-[10px] text-slate-500 mb-1">Recruiter Audit Event:</div>
+                  <div id="atsNoteLog" class="text-slate-300 leading-relaxed text-[11px] sm:text-xs">
+                    Application received via one-click resume submission (MIME verified .pdf).
+                  </div>
+                </div>
+
+                <!-- Interactive Buttons -->
+                <div class="flex items-center gap-2 pt-1">
+                  <button id="atsAdvanceBtn" class="flex-1 py-2 px-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-md">
+                    <span>Advance Candidate Stage ➔</span>
+                  </button>
+                  <button id="atsResetBtn" class="py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition-all">
+                    Reset
+                  </button>
+                </div>
+
+                <div class="pt-1">
+                  <button id="atsRoleToggle" class="w-full py-2 px-3 rounded-lg border border-slate-800 hover:border-blue-500/50 bg-slate-900/60 text-slate-400 hover:text-blue-300 text-[11px] font-mono transition-all">
+                    Switch to Candidate Portal View
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           PROJECT 3: COZASTORE
+           =================================================================== -->
+      <div id="cozastore" class="solid-card p-5 sm:p-10 border-purple-500/30 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Details -->
+          <div class="lg:col-span-7 space-y-4 sm:space-y-5">
+            
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="px-2.5 sm:px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30 text-xs font-bold font-mono">
+                FLAGSHIP 03
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md bg-green-500/10 text-green-400 text-xs font-medium border border-green-500/20">
+                GitHub Actions MSBuild CI
+              </span>
+            </div>
+
+            <h3 class="text-xl sm:text-3xl font-heading font-bold text-white">
+              CozaStore: Full-Stack E-Commerce &amp; Retail ERP Management Suite
+            </h3>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              A comprehensive e-commerce platform paired with an administrative ERP panel for real-time sales analytics, catalog management, inventory tracking, customer orders, and support ticketing.
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Admin Operations Console:</strong> Centralized dashboard for live revenue metrics, transaction tracking, customer support replies, and low-stock warnings (&le;10 pcs).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>E-Commerce Pipeline:</strong> Dynamic product catalog, multi-category filtering, shopping cart persistence, and multi-step checkout workflow with customer billing history.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Automated CI Pipeline:</strong> Windows runner MSBuild workflow validating syntax, NuGet package restoration, and Release builds on every branch pull request.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Data Architecture:</strong> Normalized SQL Server schema with ADO.NET and connection pool helpers.</span>
+              </li>
+            </ul>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">ASP.NET Web Forms</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">C#</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">ADO.NET &amp; SQL Server</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-amber-300">Bootstrap &amp; jQuery</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">GitHub Actions CI</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a href="https://github.com/muxdaslam-sys/CozaStore" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/20 transition-all hover:scale-105">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View CozaStore Repository</span>
+              </a>
+              <span class="text-xs text-slate-500 font-mono">Storefront &amp; ERP Master Layouts</span>
+            </div>
+
+          </div>
+
+          <!-- Right: Live Admin ERP Telemetry Preview -->
+          <div class="lg:col-span-5 w-full">
+            <div class="terminal-window p-4 sm:p-5 border border-purple-500/40 relative">
+              
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></span>
+                  <span class="text-xs font-mono text-purple-400 font-bold ml-1.5">CozaStore: Live ERP Console</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-purple-950 text-purple-300 text-[10px] border border-purple-800">Telemetry</span>
+              </div>
+
+              <div class="pt-3.5 space-y-3 font-mono text-xs">
+                
+                <!-- Telemetry Cards -->
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-2.5 sm:p-3 rounded-lg bg-slate-950 border border-slate-800">
+                    <span class="text-[10px] text-slate-500 block">Total Revenue</span>
+                    <span class="text-sm sm:text-base font-bold text-emerald-400">\$48,250.00</span>
+                  </div>
+                  <div class="p-2.5 sm:p-3 rounded-lg bg-slate-950 border border-slate-800">
+                    <span class="text-[10px] text-slate-500 block">Orders Processed</span>
+                    <span class="text-sm sm:text-base font-bold text-cyan-400">1,248</span>
+                  </div>
+                </div>
+
+                <div class="p-3 sm:p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5 sm:space-y-2">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-amber-400 font-bold flex items-center gap-1">
+                      <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                      Inventory Low-Stock Alert
+                    </span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">Auto Trigger</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">
+                    SKU: <code class="text-white">CZ-DENIM-99</code> stock dropped to <strong>4 units</strong> (&le; 10 unit threshold). Restock notification dispatched.
+                  </p>
+                </div>
+
+                <div class="p-3 sm:p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                  <div class="text-[10px] text-slate-500">GitHub Actions CI Pipeline:</div>
+                  <div class="flex items-center gap-2 text-[11px] text-emerald-400">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>MSBuild AnyCPU compiled in Release with 0 errors</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SYSTEM ARCHITECTURE & REAL-TIME WIRE
+       ========================================================================= -->
+  <section id="architecture" class="py-16 sm:py-20 bg-slate-950/80 border-t border-slate-800/80 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-heading font-bold text-white">
+          System <span class="gradient-text-cyan">Architecture &amp; Concurrency</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-base">
+          Engineering principles applied across high-load clinical and enterprise systems.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        
+        <div class="solid-card p-5 sm:p-6 space-y-3 tilt-element">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white font-heading">Event-Driven SignalR Wire</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Eliminates traditional HTTP polling loops. Dedicated WebSocket hubs broadcast chamber calls, emergency walk-ins, and token progress in &lt;15ms latency clinic-wide.
+          </p>
+        </div>
+
+        <div class="solid-card p-5 sm:p-6 space-y-3 tilt-element">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white font-heading">RxJS Token Mutex Concurrency</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Shields against token refresh race conditions when parallel requests encounter a 401 simultaneously. Queues requests until rotation completes safely.
+          </p>
+        </div>
+
+        <div class="solid-card p-5 sm:p-6 space-y-3 tilt-element">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white font-heading">Sub-Millisecond Filtered Indexes</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Engineered 23 physical filtered B-Tree indexes on SQL Server for active queues, achieving &lt;0.5ms seeks with zero slow table scans on million-row tables.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TECHNICAL SKILLS MATRIX (DETAILED DEEP-DIVE)
+       ========================================================================= -->
+  <section id="skills" class="py-16 sm:py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-heading font-bold text-white">
+          Technical <span class="gradient-text-cyan">Competency Matrix</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Hands-on enterprise mastery across full-stack languages, distributed engines, and databases.
+        </p>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-3">
+          <button class="skill-tab active-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-black border border-cyan-400 transition-all" data-filter="all">All Disciplines</button>
+          <button class="skill-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="backend">Backend &amp; .NET</button>
+          <button class="skill-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="frontend">Frontend &amp; Signals</button>
+          <button class="skill-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="realtime">Real-Time &amp; Cloud</button>
+          <button class="skill-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="database">Databases &amp; Architecture</button>
+        </div>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">ASP.NET Core 8 Web API</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Expert</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            RESTful API architecture, Dependency Injection, rate limiting, JWT authentication, and symmetrical 1:1 service-controller patterns.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">C# (C# 12 / .NET 8)</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Core</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            SOLID principles, asynchronous programming (async/await, Task Parallel Library), LINQ optimization, and clean architecture.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Angular 19 &amp; Signals</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono">Advanced</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Standalone components, Angular Signals reactive state, OnPush change detection for 60fps rendering, and reusable modular UI.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">SignalR &amp; WebSockets</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Production</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-concurrency multi-group real-time hubs, automatic reconnect token factories, and real-time clinical triage alerts.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">SQL Server &amp; SSMS</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono">Advanced</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Filtered B-Tree indexes, stored procedures, execution plan profiling, transaction locks, and query optimization.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">RxJS &amp; Event Mutexes</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono">Specialized</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Reactive streams, debounce operators, shareReplay token refresh mutexes, and multi-channel synchronization.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Azure &amp; GitHub Actions CI/CD</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono">Cloud</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Automated testing, MSBuild pipelines, release artifact packaging, and zero-downtime deployment to Azure App Service.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Entity Framework Core 8</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono">Advanced</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            DbContext pooling, AsNoTracking read optimization, code-first and database-first workflows, and complex LINQ queries.
+          </p>
+        </div>
+
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Architecture &amp; HIPAA</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Compliant</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            N-Tier and Micro-Modular architecture, Role-Based Access Control (RBAC), and HIPAA Section 164.312 auto-lock alignment.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       EXPERIENCE & CAREER TIMELINE
+       ========================================================================= -->
+  <section id="experience" class="py-16 sm:py-24 bg-slate-950/70 border-t border-slate-800/80 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+      
+      <div class="text-center space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-heading font-bold text-white">
+          Work <span class="gradient-text-cyan">Experience &amp; Education</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          A track record of high-impact enterprise development, web modernization, and rigorous engineering.
+        </p>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative border-l border-slate-800 ml-3 sm:ml-8 space-y-8 sm:space-y-10">
+        
+        <!-- Role 1 -->
+        <div class="relative pl-5 sm:pl-8 group">
+          <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center group-hover:scale-125 transition-transform">
+            <div class="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
+          </div>
+          
+          <div class="solid-card p-5 sm:p-6 space-y-2.5 sm:space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white font-heading">.NET Full Stack Developer Intern</h3>
+                <p class="text-cyan-400 text-xs sm:text-sm font-medium">Luminar Technolab</p>
+              </div>
+              <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 text-xs font-mono">
+                Jan 2026 - Jun 2026
+              </span>
+            </div>
+
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Engineered scalable RESTful Web APIs using C#, ASP.NET Core 8, and Entity Framework Core following N-Tier architecture and SOLID principles.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Developed modern, responsive front-end interfaces using Angular 19, TypeScript, RxJS, and Tailwind CSS with OnPush change detection and component reusability.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Designed normalized SQL Server schemas, authored complex stored procedures, triggers, and indexed views, and conducted performance tuning.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Maintained Git version control workflows, collaborating via feature branching, pull requests, automated CI/CD builds, and code reviews.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="relative pl-5 sm:pl-8 group">
+          <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-900 border-2 border-purple-400 flex items-center justify-center group-hover:scale-125 transition-transform">
+            <div class="w-1.5 h-1.5 rounded-full bg-purple-400"></div>
+          </div>
+          
+          <div class="solid-card p-5 sm:p-6 space-y-2.5 sm:space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white font-heading">Digital Marketer &amp; Web Developer</h3>
+                <p class="text-purple-400 text-xs sm:text-sm font-medium">Deccorlook &amp; National Hospital</p>
+              </div>
+              <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30 text-xs font-mono">
+                May 2025 - Present (Serving 30d Notice)
+              </span>
+            </div>
+
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Developed, modernized, and maintained responsive corporate web architectures and landing pages using HTML5, CSS3, JavaScript, and Bootstrap, improving UX and reducing bounce rates by 35%.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Developed digital warranty registration portals and internal CRM modules for inventory tracking, enabling streamlined serial verification, customer records, and real-time stock management.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Implemented technical on-page SEO architectures (Core Web Vitals optimization, semantic HTML structure, Schema.org markup) and configured Google Tag Manager / GA4 event tracking.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span>Spearheaded performance marketing campaigns across Google Search/Display and Meta Ads, analyzing traffic metrics and conversion funnels to consistently maximize inquiry acquisition.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 3: Education -->
+        <div class="relative pl-5 sm:pl-8 group">
+          <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-900 border-2 border-emerald-400 flex items-center justify-center group-hover:scale-125 transition-transform">
+            <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+          </div>
+          
+          <div class="solid-card p-5 sm:p-6 space-y-2.5 sm:space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white font-heading">Bachelor of Computer Applications (BCA)</h3>
+                <p class="text-emerald-400 text-xs sm:text-sm font-medium">Ilahia College of Arts and Science</p>
+              </div>
+              <span class="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-mono">
+                Sep 2022 - Apr 2025
+              </span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              Relevant Coursework: Data Structures, Database Management Systems (DBMS), Object-Oriented Programming (OOP), Web Technologies, and Software Engineering.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ENGINEERING PHILOSOPHY & ABOUT
+       ========================================================================= -->
+  <section class="py-16 sm:py-20 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="solid-card p-6 sm:p-10 border-cyan-500/30">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
+          
+          <div class="md:col-span-4 flex justify-center">
+            <div class="relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-cyan-500/40 shadow-2xl shadow-cyan-500/20">
+              <img src="assets/images/aslam-casual.jpg" alt="Muhammed Aslam" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+          </div>
+
+          <div class="md:col-span-8 space-y-3.5 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold">
+              <span>Engineering Philosophy</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
+              Technical Rigor Paired With Production Empathy
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              I focus on solving real operational constraints: eliminating concurrency race conditions, designing predictable relational databases, and architecting event-driven real-time pipelines that remain resilient when thousands of users connect at once.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <button onclick="downloadResume()" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs transition-all hover:scale-105">
+                Download Official PDF Resume
+              </button>
+              <button onclick="copyEmail()" class="px-5 py-2.5 rounded-xl solid-card hover:bg-slate-800 text-slate-300 text-xs font-semibold transition-all">
+                Copy Email (muxd.aslam@gmail.com)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CONTACT & HIRE ME SECTION
+       ========================================================================= -->
+  <section id="contact" class="py-16 sm:py-24 border-t border-slate-800/80 bg-slate-950/80 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+      
+      <div class="text-center space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-heading font-bold text-white">
+          Direct <span class="gradient-text-cyan">Communication Channels</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Currently serving 30 days notice period and exploring full-time .NET Full Stack Developer opportunities.
+        </p>
+      </div>
+
+      <!-- Contact Channels Cards with Authentic Vector SVGs -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        
+        <button onclick="copyEmail()" class="solid-card p-4 sm:p-5 text-center group hover:border-cyan-500/50 transition-all">
+          <div class="w-8 h-8 mx-auto mb-2 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-white group-hover:text-cyan-400">Email Direct</div>
+          <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5 truncate">muxd.aslam@gmail.com</div>
+        </button>
+
+        <a href="https://wa.me/919061651957?text=Hi%20Muhammed%20Aslam,%20I%20reviewed%20your%20portfolio" target="_blank" rel="noopener" class="solid-card p-4 sm:p-5 text-center group hover:border-emerald-500/50 transition-all">
+          <div class="w-8 h-8 mx-auto mb-2 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-white group-hover:text-emerald-400">WhatsApp</div>
+          <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">+91 9061651957</div>
+        </a>
+
+        <a href="https://linkedin.com/in/muxd-aslam" target="_blank" rel="noopener" class="solid-card p-4 sm:p-5 text-center group hover:border-blue-500/50 transition-all">
+          <div class="w-8 h-8 mx-auto mb-2 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-white group-hover:text-blue-400">LinkedIn</div>
+          <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">/in/muxd-aslam</div>
+        </a>
+
+        <a href="https://github.com/muxdaslam-sys" target="_blank" rel="noopener" class="solid-card p-4 sm:p-5 text-center group hover:border-purple-500/50 transition-all">
+          <div class="w-8 h-8 mx-auto mb-2 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-white group-hover:text-purple-400">GitHub</div>
+          <div class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">/muxdaslam-sys</div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER (EXECUTIVE ENTERPRISE BRANDING)
+       ========================================================================= -->
+  <footer class="py-8 border-t border-slate-900 bg-black/90 text-center text-xs text-slate-500 font-mono relative z-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 <span class="text-white font-medium">Muhammed Aslam</span>. All rights reserved. High-concurrency enterprise engineering.
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="#hero" class="hover:text-cyan-400">Back to Top ↑</a>
+        <span>•</span>
+        <button onclick="downloadResume()" class="hover:text-cyan-400">Resume PDF</button>
+        <span>•</span>
+        <button onclick="toggleTerminal()" class="hover:text-cyan-400">CLI Mode</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS & DRAWERS
+       ========================================================================= -->
+
+  <!-- 1. UPGRADED WHY HIRE ME CANDIDATE PROFILE & ROLE MATCHER MODAL -->
+  <div id="recruiterPitchModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85">
+    <div class="glass-modal max-w-2xl w-full p-5 sm:p-7 rounded-2xl border-amber-500/40 relative shadow-2xl max-h-[90vh] overflow-y-auto space-y-5">
+      
+      <button id="recruiterPitchClose" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2" aria-label="Close modal">
+        ✕
+      </button>
+
+      <!-- Header -->
+      <div class="space-y-2 border-b border-slate-800 pb-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">Candidate Profile #2026-MA</span>
+          </div>
+          <span id="matchStatusBadge" class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-semibold">
+            Verified Direct Fit
+          </span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-white">
+          Why Hire Me | Candidate Profile &amp; Role Matcher
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-mono text-xs text-slate-300">
+          <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-500 block">Notice Period</span>
+            <span class="font-bold text-emerald-400">30 Days (Serving)</span>
+          </div>
+          <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-500 block">Primary Stack</span>
+            <span class="font-bold text-cyan-400">.NET 8 &amp; Angular 19</span>
+          </div>
+          <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 col-span-2 sm:col-span-1">
+            <span class="text-[10px] text-slate-500 block">Work Mode</span>
+            <span class="font-bold text-purple-400">Remote / Hybrid / Relocate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Role Matcher Checklist -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-300 font-bold">Interactive Role Requirement Matcher:</span>
+          <span id="matchScoreDisplay" class="text-cyan-400 font-bold">100% Match</span>
+        </div>
+
+        <div class="space-y-2 text-xs font-mono">
+          <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
+            <div>
+              <span class="text-white font-semibold block">ASP.NET Core 8 Web API &amp; C# 12 Architecture</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: Symmetrical services, rate limiting, and 1:1 clean controller mapping.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
+            <div>
+              <span class="text-white font-semibold block">High-Concurrency SignalR WebSockets</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: 10,000+ simultaneous real-time hospital users with zero polling lag.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
+            <div>
+              <span class="text-white font-semibold block">Angular 19 Signals &amp; OnPush Change Detection</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: 60fps rendering across 7 hospital clinical and triage portals.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
+            <div>
+              <span class="text-white font-semibold block">SQL Server Indexing &amp; Query Tuning</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: 23 physical filtered B-Tree indexes delivering &lt;0.5ms memory seeks.</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
+            <div>
+              <span class="text-white font-semibold block">Automated Cloud CI/CD (GitHub Actions to Azure)</span>
+              <span class="text-[11px] text-slate-400">Proven in JobNest: MSBuild release packaging deploying directly to Azure App Service.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Quick Action Conversion Hub -->
+      <div class="pt-3 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <a href="https://wa.me/919061651957?text=Hi%20Muhammed%20Aslam,%20I%20reviewed%20your%20candidate%20profile%20for%20an%20engineering%20role" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-105">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Chat on WhatsApp</span>
+        </a>
+
+        <div class="flex flex-wrap gap-2">
+          <button onclick="downloadResume()" class="px-3.5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs transition-all">
+            Download Resume PDF
+          </button>
+          <button onclick="copyEmail()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-all">
+            Copy Email
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. COMMAND PALETTE MODAL (CTRL+K) -->
+  <div id="cmdPaletteModal" class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-24 p-3 sm:p-4 bg-black/80">
+    <div class="glass-modal max-w-xl w-full p-3 sm:p-4 rounded-2xl border-cyan-500/40 shadow-2xl space-y-3">
+      
+      <div class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="cmdPaletteInput" placeholder="Type a command or jump to section..." class="w-full bg-transparent text-xs sm:text-sm text-white focus:outline-none font-mono">
+        <kbd class="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700">ESC</kbd>
+      </div>
+
+      <div id="cmdPaletteList" class="max-h-64 sm:max-h-72 overflow-y-auto space-y-1">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. IN-PAGE RECRUITER TERMINAL DRAWER -->
+  <div id="terminalDrawer" class="hidden fixed inset-x-3 bottom-3 sm:inset-x-auto sm:right-6 sm:bottom-6 z-50 sm:w-full sm:max-w-lg shadow-2xl">
+    <div class="terminal-window border border-cyan-500/40 overflow-hidden">
+      
+      <div class="terminal-header flex items-center justify-between">
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <div class="terminal-dot bg-red-500"></div>
+          <div class="terminal-dot bg-yellow-500"></div>
+          <div class="terminal-dot bg-green-500"></div>
+          <span class="text-[11px] sm:text-xs text-slate-300 font-mono ml-1.5">aslam@portfolio: ~ (Interactive CLI)</span>
+        </div>
+        <button id="terminalCloseBtn" class="text-slate-400 hover:text-white text-xs px-2 py-0.5" aria-label="Close terminal">✕</button>
+      </div>
+
+      <div id="terminalOutput" class="p-3 sm:p-4 h-52 sm:h-64 overflow-y-auto text-xs font-mono space-y-2 bg-slate-950/95">
+        <div class="text-cyan-400">Muhammed Aslam Portfolio Terminal v2.1</div>
+        <div class="text-slate-400">Type <span class="text-yellow-300 font-bold">'help'</span> for command index. Type <span class="text-emerald-300 font-bold">'notice'</span> or <span class="text-cyan-300 font-bold">'match'</span> for candidate overview.</div>
+      </div>
+
+      <div class="p-2.5 sm:p-3 border-t border-slate-800 bg-slate-950 flex items-center gap-2 font-mono text-xs">
+        <span class="text-cyan-400 font-bold">&gt;</span>
+        <input type="text" id="terminalInput" placeholder="Type command here..." class="w-full bg-transparent text-slate-100 focus:outline-none">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
