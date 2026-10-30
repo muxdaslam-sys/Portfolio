@@ -6,83 +6,18 @@
  */
 
 // ==========================================
-// 1. LAZY WEB AUDIO SYNTHESIZER (ZERO STARTUP WARNINGS)
+// 1. SOUND ENGINE (SILENCED FOR CLEAN PROFESSIONAL UX)
 // ==========================================
 class SoundEngine {
   constructor() {
-    this.audioCtx = null;
-    this.enabled = localStorage.getItem('aslam_sound_enabled') === 'true';
+    this.enabled = false;
   }
-
-  ensureContext() {
-    if (!this.audioCtx && (window.AudioContext || window.webkitAudioContext)) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      this.audioCtx = new AudioContext();
-    }
-    if (this.audioCtx && this.audioCtx.state === 'suspended') {
-      this.audioCtx.resume();
-    }
-  }
-
-  toggle() {
-    this.enabled = !this.enabled;
-    localStorage.setItem('aslam_sound_enabled', this.enabled);
-    if (this.enabled) {
-      this.ensureContext();
-      this.playChime();
-    }
-    return this.enabled;
-  }
-
-  playPop(freq = 600, duration = 0.05) {
-    if (!this.enabled) return;
-    try {
-      this.ensureContext();
-      if (!this.audioCtx) return;
-      const osc = this.audioCtx.createOscillator();
-      const gain = this.audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(freq * 0.5, this.audioCtx.currentTime + duration);
-      gain.gain.setValueAtTime(0.06, this.audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(this.audioCtx.destination);
-      osc.start();
-      osc.stop(this.audioCtx.currentTime + duration);
-    } catch (e) {}
-  }
-
-  playClick() {
-    this.playPop(850, 0.04);
-  }
-
-  playHover() {
-    if (!this.enabled || !this.audioCtx) return;
-    this.playPop(1200, 0.02);
-  }
-
-  playChime() {
-    if (!this.enabled) return;
-    try {
-      this.ensureContext();
-      if (!this.audioCtx) return;
-      const notes = [523.25, 659.25, 783.99, 1046.50];
-      notes.forEach((freq, idx) => {
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-        const startTime = this.audioCtx.currentTime + (idx * 0.06);
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, startTime);
-        gain.gain.setValueAtTime(0.05, startTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.3);
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-        osc.start(startTime);
-        osc.stop(startTime + 0.3);
-      });
-    } catch (e) {}
-  }
+  ensureContext() {}
+  toggle() { return false; }
+  playPop() {}
+  playClick() {}
+  playHover() {}
+  playChime() {}
 }
 
 const sounds = new SoundEngine();
@@ -417,9 +352,14 @@ function initRecruiterTerminal() {
   if (terminalCloseBtn && terminalDrawer) {
     terminalCloseBtn.addEventListener('click', () => {
       terminalDrawer.classList.add('hidden');
-      sounds.playPop(400, 0.05);
     });
   }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && terminalDrawer && !terminalDrawer.classList.contains('hidden')) {
+      terminalDrawer.classList.add('hidden');
+    }
+  });
 }
 
 // ==========================================
@@ -520,21 +460,26 @@ function initRecruiterPitch() {
   if (!modal) return;
 
   function open() {
+    if (window.closeMobileMenu) window.closeMobileMenu();
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    sounds.playChime();
   }
 
   function close() {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
-    sounds.playPop(400, 0.05);
   }
 
   if (triggerBtn) triggerBtn.addEventListener('click', open);
   if (closeBtn) closeBtn.addEventListener('click', close);
   modal.addEventListener('click', (e) => {
     if (e.target === modal) close();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      close();
+    }
   });
 
   // Interactive Match Score Calculation
@@ -588,7 +533,6 @@ function initMobileNavigation() {
     mobileMenuDrawer.classList.remove('menu-closed', 'hidden');
     mobileMenuDrawer.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
-    sounds.playPop(750, 0.05);
   }
 
   function closeMenu() {
@@ -597,10 +541,17 @@ function initMobileNavigation() {
     document.body.style.overflow = '';
     setTimeout(() => {
       mobileMenuDrawer.classList.add('hidden');
-    }, 250);
+    }, 200);
   }
 
-  mobileMenuBtn.addEventListener('click', openMenu);
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (mobileMenuDrawer.classList.contains('menu-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
 
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -611,6 +562,8 @@ function initMobileNavigation() {
   mobileMenuDrawer.addEventListener('click', (e) => {
     if (e.target === mobileMenuDrawer) closeMenu();
   });
+
+  window.closeMobileMenu = closeMenu;
 }
 
 // ==========================================
@@ -676,47 +629,19 @@ function scrollToSection(id) {
 }
 
 function toggleTerminal() {
+  if (window.closeMobileMenu) window.closeMobileMenu();
   const terminalDrawer = document.getElementById('terminalDrawer');
+  const terminalInput = document.getElementById('terminalInput');
   if (terminalDrawer) {
-    terminalDrawer.classList.toggle('hidden');
-    sounds.playPop(750, 0.05);
-  }
-}
-
-// ==========================================
-// 13. SOUND TOGGLE BUTTON INITIALIZATION
-// ==========================================
-function initSoundToggleButton() {
-  const soundBtn = document.getElementById('soundToggleBtn');
-  const soundIcon = document.getElementById('soundIcon');
-  const soundLabel = document.getElementById('soundLabel');
-  if (!soundBtn) return;
-
-  function updateVisuals(enabled) {
-    if (enabled) {
-      soundBtn.classList.add('border-cyan-500/40', 'bg-cyan-500/10', 'text-cyan-400');
-      soundBtn.classList.remove('border-slate-800', 'text-slate-400');
-      if (soundLabel) soundLabel.textContent = "Audio ON";
-      if (soundIcon) soundIcon.innerHTML = `<span class="sound-bar"></span><span class="sound-bar"></span><span class="sound-bar"></span>`;
-    } else {
-      soundBtn.classList.remove('border-cyan-500/40', 'bg-cyan-500/10', 'text-cyan-400');
-      soundBtn.classList.add('border-slate-800', 'text-slate-400');
-      if (soundLabel) soundLabel.textContent = "Audio OFF";
-      if (soundIcon) soundIcon.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>`;
+    const isHidden = terminalDrawer.classList.toggle('hidden');
+    if (!isHidden && terminalInput) {
+      setTimeout(() => terminalInput.focus(), 80);
     }
   }
-
-  updateVisuals(sounds.enabled);
-
-  soundBtn.addEventListener('click', () => {
-    const isNowOn = sounds.toggle();
-    updateVisuals(isNowOn);
-    showToast(isNowOn ? "Interactive audio effects activated" : "Audio effects muted");
-  });
 }
 
 // ==========================================
-// 14. SKILLS FILTERING TABS
+// 13. SKILLS FILTERING TABS
 // ==========================================
 function initSkillsFilter() {
   const tabs = document.querySelectorAll('.skill-tab');
@@ -724,7 +649,6 @@ function initSkillsFilter() {
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      sounds.playClick();
       const filter = tab.dataset.filter;
 
       tabs.forEach(t => {
@@ -757,7 +681,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCommandPalette();
   initRecruiterPitch();
   initMobileNavigation();
-  initSoundToggleButton();
   initSkillsFilter();
 
   window.copyEmail = copyEmail;

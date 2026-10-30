@@ -1,7 +1,7 @@
 # Muhammed Aslam | Professional Developer Portfolio
 
 > **High-Concurrency .NET & Angular Full-Stack Developer Showcase**  
-> Designed with modern dark obsidian aesthetics, 3D tilt effects, Web Audio sound synthesis, deep system architecture telemetry, and an interactive recruiter command palette.
+> Designed with modern dark obsidian aesthetics, 3D tilt effects, deep system architecture telemetry, and an interactive recruiter command palette.
 
 ---
 
@@ -27,7 +27,7 @@
    - 📄 **1-Click PDF Resume Download**: Direct access to `Muhammed_Aslam_Resume.pdf`.
    - ⌨️ **Command Palette (`Ctrl + K` / `Cmd + K`)**: Keyboard-driven quick jump navigation.
    - 💻 **Interactive In-Page Terminal CLI**: Try typing `help`, `skills`, `vitalq`, `jobnest`, `cozastore`, `resume`, `contact`, or `hire`.
-   - 🔊 **Zero-Lag Synthesized Audio FX**: Native Web Audio API sound effects (no external audio files needed; includes a mute toggle).
+   - 🔍 **Quick Jump Palette & Search (`Ctrl + K`)**: Instant keyboard and mobile-friendly command jump across all sections and tools.
 
 ---
 
@@ -73,7 +73,7 @@ Portfolio/
 │   ├── css/
 │   │   └── tailwind.min.css             # Compiled Tailwind utility classes & glassmorphism
 │   ├── js/
-│   │   └── main.js                      # Web Audio synth, canvas, simulators, CLI, modals
+│   │   └── main.js                      # Canvas constellation, telemetry simulators, CLI, modals
 │   ├── docs/
 │   │   └── Muhammed_Aslam_Resume.pdf    # Official ATS-optimized resume
 │   └── images/

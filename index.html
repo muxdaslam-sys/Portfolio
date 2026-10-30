@@ -75,12 +75,11 @@
         </button>
 
 
-        <!-- Sound FX Toggle -->
-        <button id="soundToggleBtn" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-cyan-400 text-xs font-medium transition-all" title="Toggle Interactive Audio FX">
-          <span id="soundIcon" class="flex items-center gap-0.5">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
-          </span>
-          <span id="soundLabel" class="hidden sm:inline">Audio OFF</span>
+        <!-- Command Search / Quick Jump Trigger -->
+        <button id="cmdPaletteTrigger" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-cyan-400 hover:border-slate-700 text-xs font-medium transition-all" title="Quick Jump & Search (Ctrl+K)">
+          <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span class="hidden sm:inline font-mono text-[11px] text-slate-400">Search</span>
+          <kbd class="hidden md:inline-block px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-[10px] text-slate-400 font-mono">Ctrl+K</kbd>
         </button>
 
         <!-- Download CV Button -->
@@ -123,12 +122,12 @@
       </nav>
 
       <div class="pt-4 border-t border-slate-800/80 flex flex-col gap-2.5">
-        <button onclick="openRecruiterPitchModal()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center justify-center gap-2">
+        <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); openRecruiterPitchModal()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center justify-center gap-2">
           <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <span>Why Hire Me</span>
           <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono">30d Notice</span>
         </button>
-        <button onclick="toggleTerminal()" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 text-xs font-mono flex items-center justify-center gap-2">
+        <button onclick="if(window.closeMobileMenu) window.closeMobileMenu(); toggleTerminal()" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 text-xs font-mono flex items-center justify-center gap-2">
           <span>&gt;_ Open Terminal CLI</span>
         </button>
       </div>
@@ -195,7 +194,7 @@
           <!-- Contact Quick-Bar -->
           <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs text-slate-400">
             
-            <a href="mailto:muxd.aslam@gmail.com" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-slate-300 transition-all">
+            <a href="mailto:muxd.aslam@gmail.com" onclick="copyEmail()" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-slate-300 transition-all">
               <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <span>muxd.aslam@gmail.com</span>
             </a>
@@ -1255,7 +1254,7 @@
       <!-- Contact Channels Cards with Authentic Vector SVGs -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         
-        <a href="mailto:muxd.aslam@gmail.com" class="solid-card p-4 sm:p-5 text-center group hover:border-cyan-500/50 transition-all block">
+        <a href="mailto:muxd.aslam@gmail.com" onclick="copyEmail()" class="solid-card p-4 sm:p-5 text-center group hover:border-cyan-500/50 transition-all block">
           <div class="w-8 h-8 mx-auto mb-2 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
