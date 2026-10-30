@@ -6,21 +6,14 @@
  */
 
 // ==========================================
-// 1. SOUND ENGINE (SILENCED FOR CLEAN PROFESSIONAL UX)
+// 1. SOUND INTERFACE (MUTED FOR PURE EXECUTIVE UX)
 // ==========================================
-class SoundEngine {
-  constructor() {
-    this.enabled = false;
-  }
-  ensureContext() {}
-  toggle() { return false; }
-  playPop() {}
-  playClick() {}
-  playHover() {}
-  playChime() {}
-}
-
-const sounds = new SoundEngine();
+const sounds = {
+  playPop: () => {},
+  playClick: () => {},
+  playHover: () => {},
+  playChime: () => {}
+};
 
 // ==========================================
 // 2. BATTERY-AWARE CYBER CONSTELLATION CANVAS
@@ -32,9 +25,10 @@ function initCyberCanvas() {
   let width, height;
   let particles = [];
   const isMobile = window.innerWidth < 768;
-  const particleCount = isMobile ? 20 : 55;
-  const mouse = { x: null, y: null, maxDist: 110 };
+  const particleCount = isMobile ? 18 : 50;
+  const mouse = { x: null, y: null, maxDist: 100 };
   let isTabActive = true;
+  let isHeroVisible = true;
   let animFrameId = null;
 
   function resize() {
@@ -56,9 +50,22 @@ function initCyberCanvas() {
     });
   }
 
+  const heroSection = document.getElementById('hero');
+  if (heroSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isHeroVisible = entry.isIntersecting;
+        if (isHeroVisible && isTabActive && !animFrameId) {
+          animate();
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(heroSection);
+  }
+
   document.addEventListener('visibilitychange', () => {
     isTabActive = !document.hidden;
-    if (isTabActive && !animFrameId) {
+    if (isTabActive && isHeroVisible && !animFrameId) {
       animate();
     }
   });
@@ -67,11 +74,11 @@ function initCyberCanvas() {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.radius = Math.random() * 1.5 + 0.7;
+      this.vx = (Math.random() - 0.5) * (isMobile ? 0.25 : 0.4);
+      this.vy = (Math.random() - 0.5) * (isMobile ? 0.25 : 0.4);
+      this.radius = Math.random() * 1.4 + 0.6;
       this.color = Math.random() > 0.6 ? 'rgba(0, 245, 255, ' : 'rgba(168, 85, 247, ';
-      this.alpha = Math.random() * 0.4 + 0.15;
+      this.alpha = Math.random() * 0.35 + 0.15;
     }
 
     update() {
@@ -80,7 +87,7 @@ function initCyberCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      if (mouse.x !== null) {
+      if (!isMobile && mouse.x !== null) {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -105,25 +112,26 @@ function initCyberCanvas() {
   }
 
   function animate() {
-    if (!isTabActive) {
+    if (!isTabActive || !isHeroVisible) {
       animFrameId = null;
       return;
     }
 
     ctx.clearRect(0, 0, width, height);
 
+    const maxLineDist = isMobile ? 70 : 95;
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 95) {
-          const alpha = (1 - dist / 95) * 0.1;
+        if (dist < maxLineDist) {
+          const alpha = (1 - dist / maxLineDist) * (isMobile ? 0.06 : 0.1);
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.strokeStyle = `rgba(0, 245, 255, ${alpha})`;
-          ctx.lineWidth = 0.65;
+          ctx.lineWidth = 0.6;
           ctx.stroke();
         }
       }
@@ -143,7 +151,8 @@ function initCyberCanvas() {
 // 3. 3D TILT EFFECT (DESKTOP ONLY)
 // ==========================================
 function initSpotlightAndTilt() {
-  if (window.innerWidth < 768) return;
+  const isPointerFine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!isPointerFine || window.innerWidth < 768) return;
 
   const cards = document.querySelectorAll('.tilt-element');
 

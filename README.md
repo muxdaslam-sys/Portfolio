@@ -78,7 +78,7 @@ Portfolio/
 │   │   └── Muhammed_Aslam_Resume.pdf    # Official ATS-optimized resume
 │   └── images/
 │       ├── aslam-blazer.jpg             # Executive studio portrait
-│       └── aslam-casual.png             # Approachable contact portrait
+│       └── aslam-casual.jpg             # Approachable contact portrait
 ```
 
 ---
