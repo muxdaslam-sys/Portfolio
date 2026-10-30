@@ -324,7 +324,7 @@ function initRecruiterTerminal() {
   * <span class="text-cyan-400">help</span>         : Display this command index
   * <span class="text-cyan-400">notice</span>       : Check official notice period & availability
   * <span class="text-cyan-400">match</span>        : Verify candidate match against requirements
-  * <span class="text-cyan-400">vitalq</span>       : Deep dive into VitalQ (.NET 8 + Angular 19 + SignalR)
+  * <span class="text-cyan-400">vitalq</span>       : Deep dive into VitalQ (.NET + Angular + SignalR)
   * <span class="text-cyan-400">jobnest</span>      : JobNest ATS Architecture & Azure deployment
   * <span class="text-cyan-400">cozastore</span>    : CozaStore E-Commerce ERP & CI/CD summary
   * <span class="text-cyan-400">skills</span>       : Full-Stack technical competencies breakdown
@@ -339,14 +339,14 @@ function initRecruiterTerminal() {
   * Preferred Locations   : Remote, Hybrid, or On-Site Relocation`,
 
     match: `<span class="text-cyan-400 font-bold">Candidate Compatibility Check:</span>
-  * .NET 8 / C# Web APIs  : 100% Match (VitalQ Symmetrical Service-Controller Architecture)
-  * Angular 19 & Signals : 100% Match (60fps OnPush change detection)
+  * .NET / C# Web APIs   : 100% Match (VitalQ Symmetrical Service-Controller Architecture)
+  * Angular & Signals    : 100% Match (60fps OnPush change detection)
   * Real-Time SignalR    : 100% Match (10,000+ concurrent WebSockets with JWT auto-rotation)
   * SQL Server Indexing  : 100% Match (23 Filtered B-Trees, <0.5ms seeks)
   * Azure & GitHub CI/CD : 100% Match (Automated MSBuild release pipelines)`,
 
     vitalq: `<span class="text-emerald-400 font-bold">VitalQ Architecture:</span>
-  * Stack: Angular 19 (Signals & OnPush), ASP.NET Core 8 Web API, SignalR, EF Core 8, SQL Server
+  * Stack: Angular (Signals & OnPush), ASP.NET Core Web API, SignalR, Entity Framework Core, SQL Server
   * Concurrency: 10,000+ simultaneous real-time users
   * Database: Sub-millisecond (<0.5ms) seeks via 23 Filtered B-Trees
   * Engine: Dynamic CTAS 1-5 triage scoring & RxJS token concurrency mutex
@@ -366,15 +366,15 @@ function initRecruiterTerminal() {
   * Repo: <a href="https://github.com/muxdaslam-sys/CozaStore" target="_blank" class="text-cyan-400 underline">github.com/muxdaslam-sys/CozaStore</a>`,
 
     skills: `<span class="text-cyan-400 font-bold">Technical Skills:</span>
-  * Backend: C#, ASP.NET Core 8 Web API, ASP.NET MVC 5, EF Core 8, ADO.NET, RESTful APIs, Swagger
-  * Frontend: Angular 19, TypeScript, RxJS, HTML5, CSS3, Tailwind CSS, Bootstrap 5
+  * Backend: C#, ASP.NET Core Web API, ASP.NET MVC 5, Entity Framework Core, ADO.NET, RESTful APIs, Swagger
+  * Frontend: Angular, TypeScript, RxJS, HTML5, CSS3, Tailwind CSS, Bootstrap 5
   * Real-Time: SignalR WebSockets, Event-Driven Architecture, RxJS Concurrency Mutex
   * Database: SQL Server, Filtered B-Tree Indexes, Stored Procedures, Views, Query Optimization
   * DevOps: Git, GitHub Actions, Microsoft Azure App Service, Visual Studio, Postman, SSMS`,
 
     experience: `<span class="text-amber-400 font-bold">Experience History:</span>
   1. .NET Full Stack Developer Intern at Luminar Technolab (Jan 2026 - Jun 2026)
-     - Engineered enterprise RESTful APIs, Angular 19 OnPush components, and SQL optimization.
+     - Engineered enterprise RESTful APIs, Angular OnPush components, and SQL optimization.
   2. Digital Marketer & Web Developer at Deccorlook & National Hospital (May 2025 - Present)
      - Responsive web architecture, warranty registration portals, inventory CRM, technical SEO, and ad campaigns.
   3. BCA (Bachelor of Computer Applications) at Ilahia College of Arts & Science (2022 - 2025)`,

@@ -1,11 +1,11 @@
-# Muhammed Aslam  |  Professional Developer Portfolio
+# Muhammed Aslam | Professional Developer Portfolio
 
-> **High-Concurrency .NET 8 & Angular 19 Full-Stack Developer Showcase**  
-> Designed with modern dark obsidian aesthetics, 3D tilt effects, Web Audio sound synthesis, live clinical triage & ATS pipeline simulators, and an interactive recruiter command palette.
+> **High-Concurrency .NET & Angular Full-Stack Developer Showcase**  
+> Designed with modern dark obsidian aesthetics, 3D tilt effects, Web Audio sound synthesis, deep system architecture telemetry, and an interactive recruiter command palette.
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 1. **Cyber Obsidian & Glassmorphism Design**:
    - Deep obsidian space canvas with interactive 60fps constellation mesh reacting to cursor coordinates.
@@ -16,13 +16,11 @@
 
 3. **3 Flagship Production Projects Showcased**:
    - **VitalQ** (*Hospital OPD Priority Queue & CTAS Triage Platform*):
-     - Interactive **CTAS 1-5 Triage Simulator** letting recruiters drag vital sign sliders (SpO2, Heart Rate, BP, Pain) to witness instant algorithmic triage re-ranking and station routing!
-     - 10,000+ concurrent user architecture, SignalR WebSockets, RxJS mutex, and sub-millisecond (<0.5ms) SQL filtered B-Tree indexing.
+     - Production **System Architecture & Scale** breakdown: 10,000+ concurrent user architecture, SignalR WebSockets, RxJS mutex, and sub-millisecond (<0.5ms) SQL filtered B-Tree indexing.
    - **JobNest** (*Modern Recruitment & Applicant Tracking Platform*):
-     - Interactive **ATS Pipeline Progression Simulator** demonstrating candidate status movement from `Applied` ➔ `Shortlisted` ➔ `Interview` ➔ `Hired! 🏆`.
-     - Deployed live on Microsoft Azure App Service with automated GitHub Actions CI/CD.
+     - **Cloud Architecture & Azure Deployment** breakdown: Deployed live on Microsoft Azure App Service with automated GitHub Actions CI/CD and secure resume MIME inspection.
    - **CozaStore** (*Full-Stack E-Commerce & Retail ERP Management Suite*):
-     - Live administrative ERP telemetry preview showing revenue tracking, low-stock triggers (&le;10 pcs), and automated MSBuild CI workflow.
+     - **E-Commerce & ERP Architecture** breakdown: Live inventory tracking, low-stock triggers (<=10 pcs), and automated MSBuild CI workflow.
 
 4. **Recruiter-First Conversion Features**:
    - ⏱️ **Recruiter 30-Second Quick Pitch Modal**: Instant executive summary for busy hiring managers.
