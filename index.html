@@ -74,11 +74,6 @@
           <span>Why Hire Me</span>
         </button>
 
-        <!-- Command Palette Trigger (Desktop) -->
-        <button id="cmdPaletteTrigger" class="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-700/60 text-slate-400 text-xs font-mono transition-all">
-          <span>Menu</span>
-          <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-[10px] text-cyan-400">Ctrl+K</kbd>
-        </button>
 
         <!-- Sound FX Toggle -->
         <button id="soundToggleBtn" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-cyan-400 text-xs font-medium transition-all" title="Toggle Interactive Audio FX">
@@ -981,93 +976,135 @@
       <!-- Skills Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         
+        <!-- 1. ASP.NET Core Web API -->
         <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend">
           <div class="flex items-center justify-between">
             <h4 class="font-bold text-white font-heading text-sm sm:text-base">ASP.NET Core Web API</h4>
             <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Expert</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            RESTful API architecture, Dependency Injection, rate limiting, JWT authentication, and symmetrical 1:1 service-controller patterns.
+            RESTful API design, Dependency Injection, Middleware pipelines, Swagger/OpenAPI documentation, and symmetrical 1:1 service-controller patterns.
           </p>
         </div>
 
+        <!-- 2. C# & OOP Architecture -->
         <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend">
           <div class="flex items-center justify-between">
             <h4 class="font-bold text-white font-heading text-sm sm:text-base">C# &amp; OOP Architecture</h4>
             <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Core</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            SOLID principles, asynchronous programming (async/await, Task Parallel Library), LINQ optimization, and clean architecture.
+            SOLID design principles, Asynchronous programming (async/await, Task Parallel Library), LINQ query optimization, and clean N-Tier layered architecture.
           </p>
         </div>
 
+        <!-- 3. API Security & JWT (RBAC) -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">API Security &amp; JWT (RBAC)</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Security</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            JWT Bearer authentication, refresh token auto-rotation, ASP.NET Identity, Role-Based Access Control (RBAC), and HIPAA Section 164.312 auto-lock alignment.
+          </p>
+        </div>
+
+        <!-- 4. Angular & Modern Signals -->
         <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend">
           <div class="flex items-center justify-between">
             <h4 class="font-bold text-white font-heading text-sm sm:text-base">Angular &amp; Modern Signals</h4>
             <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono">Advanced</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Standalone components, Angular Signals reactive state, OnPush change detection for 60fps rendering, and reusable modular UI.
+            Reactive Signals state primitives, Standalone components, OnPush change detection for 60fps rendering, and modular reusable component architectures.
           </p>
         </div>
 
-        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+        <!-- 5. TypeScript & ES6+ -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend">
           <div class="flex items-center justify-between">
-            <h4 class="font-bold text-white font-heading text-sm sm:text-base">SignalR &amp; WebSockets</h4>
-            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Production</span>
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">TypeScript &amp; ES6+</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono">Core</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            High-concurrency multi-group real-time hubs, automatic reconnect token factories, and real-time clinical triage alerts.
+            Strong static typing, custom Interfaces, Generics, strict null checks, ES6+ modular architecture, and seamless contract synchronization with backend DTOs.
           </p>
         </div>
 
+        <!-- 6. RxJS & Event Concurrency -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend realtime">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">RxJS &amp; Event Concurrency</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono">Specialized</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Reactive Observables, pipe operators (switchMap, debounceTime), shareReplay mutex locks for 401 token refresh deduplication, and event buses.
+          </p>
+        </div>
+
+        <!-- 7. SQL Server & SSMS -->
         <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
           <div class="flex items-center justify-between">
             <h4 class="font-bold text-white font-heading text-sm sm:text-base">SQL Server &amp; SSMS</h4>
             <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono">Advanced</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Filtered B-Tree indexes, stored procedures, execution plan profiling, transaction locks, and query optimization.
+            Normalized relational schemas, 23 physical filtered B-Tree indexes delivering &lt;0.5ms seeks, stored procedures, execution plan profiling, and transaction locks.
           </p>
         </div>
 
-        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+        <!-- 8. Entity Framework Core & LINQ -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
           <div class="flex items-center justify-between">
-            <h4 class="font-bold text-white font-heading text-sm sm:text-base">RxJS &amp; Event Mutexes</h4>
-            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono">Specialized</span>
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Entity Framework Core &amp; LINQ</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono">Advanced</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Reactive streams, debounce operators, shareReplay token refresh mutexes, and multi-channel synchronization.
+            DbContext pooling, AsNoTracking read optimization, Code-First migrations, eager/lazy loading strategies, and compiled LINQ query execution.
           </p>
         </div>
 
+        <!-- 9. ADO.NET & Direct Query Tuning -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">ADO.NET &amp; Direct Query Tuning</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">High-Throughput</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Parameterized SQL command execution, SqlDataReader stream processing, connection pooling management, and sub-millisecond transactional data pipelines.
+          </p>
+        </div>
+
+        <!-- 10. SignalR & WebSockets -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">SignalR &amp; WebSockets</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Production</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            High-concurrency multi-group real-time hubs, automatic reconnect token factories, zero-polling live state broadcasting, and instant clinical alerts.
+          </p>
+        </div>
+
+        <!-- 11. Azure & GitHub Actions CI/CD -->
         <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="realtime">
           <div class="flex items-center justify-between">
             <h4 class="font-bold text-white font-heading text-sm sm:text-base">Azure &amp; GitHub Actions CI/CD</h4>
             <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 font-mono">Cloud</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Automated testing, MSBuild pipelines, release artifact packaging, and zero-downtime deployment to Azure App Service.
+            Automated testing and MSBuild workflows, pull request verification, artifact packaging, and zero-downtime continuous deployment to Azure App Service.
           </p>
         </div>
 
-        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
+        <!-- 12. UI Systems & API Tooling -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend realtime">
           <div class="flex items-center justify-between">
-            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Entity Framework Core 8</h4>
-            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono">Advanced</span>
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">UI Systems &amp; API Tooling</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Tooling</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            DbContext pooling, AsNoTracking read optimization, code-first and database-first workflows, and complex LINQ queries.
-          </p>
-        </div>
-
-        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="database">
-          <div class="flex items-center justify-between">
-            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Architecture &amp; HIPAA</h4>
-            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">Compliant</span>
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            N-Tier and Micro-Modular architecture, Role-Based Access Control (RBAC), and HIPAA Section 164.312 auto-lock alignment.
+            Tailwind CSS &amp; Bootstrap 5 responsive styling, Postman API contract test collections, Git branching workflows, and Visual Studio profiling.
           </p>
         </div>
 
