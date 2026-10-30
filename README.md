@@ -11,8 +11,8 @@
    - Deep obsidian space canvas with interactive 60fps constellation mesh reacting to cursor coordinates.
    - Dynamic 3D card tilt and mouse-following radial spotlight on project and metric cards.
 
-2. **Interactive Look Switcher (3D Card Flip)**:
-   - Toggle seamlessly between the **Executive Studio Blazer** look and the **Cinematic Turtleneck Tech Lead** look with 3D perspective flip.
+2. **Executive Studio Portrait Showcase**:
+   - Clean obsidian hero portrait card with glowing cyber aura, availability indicator, and floating interactive tech chips (.NET, Angular, C#, Azure, SQL Server).
 
 3. **3 Flagship Production Projects Showcased**:
    - **VitalQ** (*Hospital OPD Priority Queue & CTAS Triage Platform*):
@@ -71,14 +71,13 @@ Portfolio/
 ├── README.md                            # Documentation and deployment guide
 ├── assets/
 │   ├── css/
-│   │   └── style.css                    # Glassmorphism, 3D flip, animations
+│   │   └── tailwind.min.css             # Compiled Tailwind utility classes & glassmorphism
 │   ├── js/
 │   │   └── main.js                      # Web Audio synth, canvas, simulators, CLI, modals
 │   ├── docs/
 │   │   └── Muhammed_Aslam_Resume.pdf    # Official ATS-optimized resume
 │   └── images/
-│       ├── aslam-blazer.png             # Executive studio portrait
-│       ├── aslam-turtleneck.jpg         # Cinematic tech lead portrait
+│       ├── aslam-blazer.jpg             # Executive studio portrait
 │       └── aslam-casual.png             # Approachable contact portrait
 ```
 

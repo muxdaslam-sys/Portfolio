@@ -284,30 +284,6 @@ function initDynamicTyping() {
 }
 
 // ==========================================
-// 5. LOOK SWITCHER (BLAZER <-> TURTLENECK)
-// ==========================================
-function initLookSwitcher() {
-  const switchBtn = document.getElementById('lookSwitchBtn');
-  const cardInner = document.getElementById('heroCardInner');
-  const lookBadge = document.getElementById('currentLookBadge');
-  if (!switchBtn || !cardInner) return;
-
-  let isFlipped = false;
-
-  switchBtn.addEventListener('click', () => {
-    isFlipped = !isFlipped;
-    cardInner.classList.toggle('is-flipped', isFlipped);
-    sounds.playPop(isFlipped ? 950 : 700, 0.08);
-
-    if (lookBadge) {
-      lookBadge.textContent = isFlipped ? "Turtleneck Portrait" : "Studio Blazer Portrait";
-    }
-
-    showToast(isFlipped ? "Switched to Turtleneck Portrait" : "Switched to Studio Blazer Portrait");
-  });
-}
-
-// ==========================================
 // 6. INTERACTIVE RECRUITER TERMINAL CLI (FOCUSED ON ENGINEERING)
 // ==========================================
 function initRecruiterTerminal() {
@@ -777,7 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCyberCanvas();
   initSpotlightAndTilt();
   initDynamicTyping();
-  initLookSwitcher();
   initRecruiterTerminal();
   initCommandPalette();
   initRecruiterPitch();

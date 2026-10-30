@@ -219,53 +219,28 @@
 
         </div>
 
-        <!-- Right Column: Interactive 3D Portrait & Look Switcher -->
+        <!-- Right Column: Executive Portrait -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative w-full max-w-[320px] sm:max-w-[380px]">
             
             <!-- Outer Glow Aura -->
             <div class="absolute -inset-2 bg-gradient-to-tr from-cyan-500/25 via-blue-500/20 to-purple-600/30 rounded-3xl blur-2xl opacity-75 animate-pulse"></div>
 
-            <!-- Responsive 3D Flip Card Container -->
-            <div class="flip-card-wrapper h-[340px] sm:h-[420px] lg:h-[460px]">
-              <div id="heroCardInner" class="flip-card-inner relative h-full">
+            <!-- Portrait Card -->
+            <div class="relative h-[340px] sm:h-[420px] lg:h-[460px] solid-card border border-cyan-500/30 p-2 sm:p-2.5 bg-slate-900/90 shadow-2xl rounded-2xl overflow-hidden">
+              <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950">
+                <img src="assets/images/aslam-blazer.jpg" alt="Muhammed Aslam: Executive Studio Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 
-                <!-- FRONT: Executive Studio Blazer Look -->
-                <div class="flip-card-front solid-card border border-cyan-500/30 p-2 sm:p-2.5 bg-slate-900/90 shadow-2xl">
-                  <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950">
-                    <img src="assets/images/aslam-blazer.jpg" alt="Muhammed Aslam: Executive Studio Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="eager">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                    
-                    <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
-                      <div class="flex items-center justify-between">
-                        <div>
-                          <h3 class="text-sm sm:text-base font-bold text-white">Muhammed Aslam</h3>
-                          <p class="text-[11px] sm:text-xs text-cyan-400 font-mono">.NET Full Stack Developer</p>
-                        </div>
-                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-semibold">Serving 30d Notice</span>
-                      </div>
+                <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="text-sm sm:text-base font-bold text-white">Muhammed Aslam</h3>
+                      <p class="text-[11px] sm:text-xs text-cyan-400 font-mono">.NET Full Stack Developer</p>
                     </div>
+                    <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-semibold">Serving 30d Notice</span>
                   </div>
                 </div>
-
-                <!-- BACK: Cinematic Turtleneck Look -->
-                <div class="flip-card-back solid-card border border-purple-500/40 p-2 sm:p-2.5 bg-slate-900/90 shadow-2xl">
-                  <div class="relative w-full h-full rounded-2xl overflow-hidden bg-slate-950">
-                    <img src="assets/images/aslam-turtleneck.jpg" alt="Muhammed Aslam: Cinematic Tech Lead Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="eager">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                    
-                    <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
-                      <div class="flex items-center justify-between">
-                        <div>
-                          <h3 class="text-sm sm:text-base font-bold text-white">Muhammed Aslam</h3>
-                          <p class="text-[11px] sm:text-xs text-purple-400 font-mono">Full-Stack Engineer</p>
-                        </div>
-                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-[10px] font-semibold">Architecture</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
 
@@ -282,14 +257,6 @@
                 <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 5.5l1.5 13.5L12 22l8.5-3L22 5.5 12 2zm0 2.8l6.3 2.2-1 9-5.3 1.9-5.3-1.9-1-9L12 4.8zm-1.2 3.6L7.5 16h2.2l.7-2h3.2l.7 2h2.2L13.2 8.4h-2.4zm1.2 2.6l1.1 3.2h-2.2l1.1-3.2z"/></svg>
                 <span class="text-[11px] sm:text-xs font-bold text-purple-300 font-mono">Angular &amp; TypeScript</span>
               </div>
-            </div>
-
-            <!-- Flip Switcher Button -->
-            <div class="mt-4 flex justify-center">
-              <button id="lookSwitchBtn" class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-500/50 text-xs font-semibold text-slate-300 hover:text-cyan-400 shadow-lg transition-all hover:scale-105 active:scale-95">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                <span id="currentLookBadge">Toggle Look: Blazer / Turtleneck</span>
-              </button>
             </div>
 
           </div>
