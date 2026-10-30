@@ -1,7 +1,7 @@
 /**
  * MUHAMMED ASLAM | PORTFOLIO INTERACTIVITY ENGINE
  * Production Architecture: Lazy Web Audio, 3D Tilt, Battery-Safe Canvas,
- * CTAS Simulator, ATS Workflow, Mobile Navigation, Command Palette, CLI Terminal,
+ * System Architecture Highlights, Mobile Navigation, Command Palette, CLI Terminal,
  * Interactive Recruiter Role Matcher.
  */
 
@@ -243,11 +243,11 @@ function initDynamicTyping() {
   if (!target) return;
 
   const roles = [
-    ".NET 8 Web API Architect",
-    "Angular 19 & Signals Specialist",
-    "Real-Time SignalR WebSockets Engineer",
-    "Sub-Millisecond SQL Optimizer (<0.5ms)",
-    "Enterprise Full-Stack Developer"
+    ".NET Full Stack Developer",
+    "Angular & TypeScript Engineer",
+    "ASP.NET Core Web API Specialist",
+    "Real-Time SignalR Architect",
+    "SQL Server & Database Optimizer"
   ];
 
   let roleIdx = 0;
@@ -308,166 +308,7 @@ function initLookSwitcher() {
 }
 
 // ==========================================
-// 6. VITALQ INTERACTIVE CTAS TRIAGE SIMULATOR
-// ==========================================
-function initVitalQSimulator() {
-  const spo2Slider = document.getElementById('simSpo2');
-  const hrSlider = document.getElementById('simHr');
-  const bpSlider = document.getElementById('simBp');
-  const painSlider = document.getElementById('simPain');
-
-  const spo2Val = document.getElementById('valSpo2');
-  const hrVal = document.getElementById('valHr');
-  const bpVal = document.getElementById('valBp');
-  const painVal = document.getElementById('valPain');
-
-  const triageBadge = document.getElementById('simTriageBadge');
-  const triageStation = document.getElementById('simStation');
-  const triageWait = document.getElementById('simWait');
-
-  if (!spo2Slider) return;
-
-  let rafScheduled = false;
-
-  function evaluateTriage() {
-    const spo2 = parseInt(spo2Slider.value);
-    const hr = parseInt(hrSlider.value);
-    const bp = parseInt(bpSlider.value);
-    const pain = parseInt(painSlider.value);
-
-    spo2Val.textContent = `${spo2}%`;
-    hrVal.textContent = `${hr} bpm`;
-    bpVal.textContent = `${bp} mmHg`;
-    painVal.textContent = `${pain}/10`;
-
-    let text, badgeClass, station, wait;
-
-    if (spo2 < 90 || hr > 140 || bp > 190 || hr < 45) {
-      text = "CTAS Level 1: RESUSCITATION (Code Red)";
-      badgeClass = "ctas-badge-1 text-red-400 border-red-500/50";
-      station = "Physician Chamber #1 (Immediate Fast-Track Pass)";
-      wait = "< 0 min (Bypasses Queue to #1)";
-    } else if (spo2 <= 94 || hr >= 115 || bp >= 165 || pain >= 8) {
-      text = "CTAS Level 2: EMERGENT (Code Yellow)";
-      badgeClass = "ctas-badge-2 text-amber-400 border-amber-500/50";
-      station = "Physician Chamber #2 (High Priority Queue)";
-      wait = "~ 5 - 10 mins (Priority Escalated)";
-    } else {
-      text = "CTAS Level 3: URGENT / ROUTINE (Code Green)";
-      badgeClass = "ctas-badge-3 text-emerald-400 border-emerald-500/50";
-      station = "OPD General Waiting Hall (Standard Queue)";
-      wait = "~ 20 - 30 mins (Standard Aging Order)";
-    }
-
-    triageBadge.className = `px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide border transition-all ${badgeClass}`;
-    triageBadge.textContent = text;
-    triageStation.textContent = station;
-    triageWait.textContent = wait;
-    rafScheduled = false;
-  }
-
-  function scheduleEvaluation() {
-    if (!rafScheduled) {
-      rafScheduled = true;
-      requestAnimationFrame(evaluateTriage);
-    }
-  }
-
-  [spo2Slider, hrSlider, bpSlider, painSlider].forEach(slider => {
-    slider.addEventListener('input', () => {
-      scheduleEvaluation();
-      sounds.playHover();
-    });
-  });
-
-  evaluateTriage();
-}
-
-// ==========================================
-// 7. JOBNEST INTERACTIVE ATS PIPELINE SIMULATOR
-// ==========================================
-function initJobNestSimulator() {
-  const advanceBtn = document.getElementById('atsAdvanceBtn');
-  const resetBtn = document.getElementById('atsResetBtn');
-  const roleToggleBtn = document.getElementById('atsRoleToggle');
-  const statusBadge = document.getElementById('atsStatusBadge');
-  const stepIndicators = document.querySelectorAll('.ats-step');
-  const noteLog = document.getElementById('atsNoteLog');
-  const cardContainer = document.getElementById('jobNestCardContainer');
-
-  if (!advanceBtn) return;
-
-  const stages = [
-    { name: "Applied", color: "bg-blue-500/20 text-blue-400 border-blue-500/30", note: "Application received via one-click resume submission (MIME verified .pdf)." },
-    { name: "Shortlisted", color: "bg-purple-500/20 text-purple-400 border-purple-500/30", note: "Recruiter reviewed profile & skills. Match score 98%." },
-    { name: "Interview Scheduled", color: "bg-amber-500/20 text-amber-400 border-amber-500/30", note: "Technical assessment booked: System Architecture & .NET 8." },
-    { name: "Offer Extended", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30", note: "Hiring committee approved. Formal offer package dispatched." },
-    { name: "Hired!", color: "bg-green-500/30 text-green-300 border-green-500/50", note: "Candidate accepted offer! Onboarding workflow initialized." }
-  ];
-
-  let currentStage = 0;
-
-  function updateATS() {
-    const stage = stages[currentStage];
-    statusBadge.textContent = stage.name;
-    statusBadge.className = `px-3 py-1 rounded-full text-xs font-semibold border transition-all ${stage.color}`;
-    noteLog.textContent = `[${new Date().toLocaleTimeString()}] ${stage.note}`;
-
-    stepIndicators.forEach((el, idx) => {
-      if (idx <= currentStage) {
-        el.classList.add('bg-cyan-500', 'text-black', 'border-cyan-400');
-        el.classList.remove('bg-slate-800', 'text-slate-400', 'border-slate-700');
-      } else {
-        el.classList.remove('bg-cyan-500', 'text-black', 'border-cyan-400');
-        el.classList.add('bg-slate-800', 'text-slate-400', 'border-slate-700');
-      }
-    });
-  }
-
-  advanceBtn.addEventListener('click', () => {
-    if (currentStage < stages.length - 1) {
-      currentStage++;
-      sounds.playChime();
-      updateATS();
-      if (currentStage === stages.length - 1) {
-        showToast("Candidate Hired! Pipeline demonstration completed.");
-      }
-    } else {
-      showToast("Candidate is already at final Hired status.");
-    }
-  });
-
-  resetBtn.addEventListener('click', () => {
-    currentStage = 0;
-    sounds.playPop(500, 0.05);
-    updateATS();
-    showToast("Pipeline reset to Applied stage.");
-  });
-
-  let isRecruiterMode = false;
-  if (roleToggleBtn && cardContainer) {
-    roleToggleBtn.addEventListener('click', () => {
-      isRecruiterMode = !isRecruiterMode;
-      sounds.playClick();
-      if (isRecruiterMode) {
-        roleToggleBtn.textContent = "Switch to Candidate Portal View";
-        cardContainer.classList.add('border-blue-500/50');
-        cardContainer.classList.remove('border-emerald-500/50');
-        showToast("Switched to JobNest Recruiter ATS Console");
-      } else {
-        roleToggleBtn.textContent = "Switch to Recruiter Dashboard View";
-        cardContainer.classList.add('border-emerald-500/50');
-        cardContainer.classList.remove('border-blue-500/50');
-        showToast("Switched to JobNest Candidate Portal View");
-      }
-    });
-  }
-
-  updateATS();
-}
-
-// ==========================================
-// 8. INTERACTIVE RECRUITER TERMINAL CLI (FOCUSED ON ENGINEERING)
+// 6. INTERACTIVE RECRUITER TERMINAL CLI (FOCUSED ON ENGINEERING)
 // ==========================================
 function initRecruiterTerminal() {
   const terminalInput = document.getElementById('terminalInput');
@@ -625,7 +466,7 @@ function initCommandPalette() {
     { title: "Work Experience & History", cat: "Experience", action: () => scrollToSection('experience') },
     { title: "Download PDF Resume", cat: "Resume", action: () => downloadResume() },
     { title: "Why Hire Me (30d Notice)", cat: "Recruiter", action: () => openRecruiterPitchModal() },
-    { title: "Copy Email Address", cat: "Contact", action: () => copyEmail() },
+    { title: "Send Email (muxd.aslam@gmail.com)", cat: "Contact", action: () => window.location.href = 'mailto:muxd.aslam@gmail.com' },
     { title: "Open Terminal CLI", cat: "Tools", action: () => toggleTerminal() },
     { title: "GitHub Profile (muxdaslam-sys)", cat: "Link", action: () => window.open('https://github.com/muxdaslam-sys', '_blank') },
     { title: "LinkedIn Profile (muxd-aslam)", cat: "Link", action: () => window.open('https://linkedin.com/in/muxd-aslam', '_blank') }
@@ -938,8 +779,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSpotlightAndTilt();
   initDynamicTyping();
   initLookSwitcher();
-  initVitalQSimulator();
-  initJobNestSimulator();
   initRecruiterTerminal();
   initCommandPalette();
   initRecruiterPitch();
