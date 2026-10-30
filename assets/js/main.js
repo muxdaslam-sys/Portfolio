@@ -356,7 +356,6 @@ function initRecruiterTerminal() {
   * Stack: ASP.NET MVC 5, C#, Entity Framework 6, SQL Server, Razor, Bootstrap, AJAX
   * Features: Split-role authentication, instant AJAX ATS pipeline, hardened 5MB resume pipeline
   * CI/CD: Automated GitHub Actions MSBuild pipeline
-  * Live Demo: <a href="https://jobnest-e8gwccfzgmgbdthe.southindia-01.azurewebsites.net/" target="_blank" class="text-cyan-400 underline">Visit Azure Live Demo</a>
   * Repo: <a href="https://github.com/muxdaslam-sys/JobNest" target="_blank" class="text-cyan-400 underline">github.com/muxdaslam-sys/JobNest</a>`,
 
     cozastore: `<span class="text-purple-400 font-bold">CozaStore E-Commerce:</span>
