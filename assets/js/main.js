@@ -294,8 +294,8 @@ function initRecruiterTerminal() {
     experience: `<span class="text-amber-400 font-bold">Experience History:</span>
   1. .NET Full Stack Developer Intern at Luminar Technolab (Jan 2026 - Jun 2026)
      - Engineered enterprise RESTful APIs, Angular OnPush components, and SQL optimization.
-  2. Digital Marketer & Web Developer at Deccorlook & National Hospital (May 2025 - Present)
-     - Responsive web architecture, warranty registration portals, inventory CRM, technical SEO, and ad campaigns.
+  2. Web Developer at Deccorlook (May 2025 - Present)
+     - Responsive web architecture, warranty registration portals, inventory CRM, RESTful API integration, and Core Web Vitals.
   3. BCA (Bachelor of Computer Applications) at Ilahia College of Arts & Science (2022 - 2025)`,
 
     resume: `<span class="text-green-400">Triggering resume download...</span> Check your browser downloads.`,
