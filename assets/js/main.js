@@ -248,6 +248,7 @@ function initRecruiterTerminal() {
   * <span class="text-cyan-400">jobnest</span>      : JobNest ATS Architecture & Azure deployment
   * <span class="text-cyan-400">cozastore</span>    : CozaStore E-Commerce ERP & CI/CD summary
   * <span class="text-cyan-400">skills</span>       : Full-Stack technical competencies breakdown
+  * <span class="text-cyan-400">mongodb</span>      : NoSQL document store & aggregation pipelines
   * <span class="text-cyan-400">experience</span>   : Professional roles and company history
   * <span class="text-cyan-400">resume</span>       : Download official ATS-optimized PDF resume
   * <span class="text-cyan-400">contact</span>      : Phone, email, WhatsApp, and social channels
@@ -288,8 +289,12 @@ function initRecruiterTerminal() {
   * Backend: C#, ASP.NET Core Web API, ASP.NET MVC 5, Entity Framework Core, ADO.NET, RESTful APIs, Swagger
   * Frontend: Angular, TypeScript, RxJS, HTML5, CSS3, Tailwind CSS, Bootstrap 5
   * Real-Time: SignalR WebSockets, Event-Driven Architecture, RxJS Concurrency Mutex
-  * Database: SQL Server, Filtered B-Tree Indexes, Stored Procedures, Views, Query Optimization
+  * Database & NoSQL: Microsoft SQL Server, MongoDB, Filtered B-Tree Indexes, Stored Procedures, BSON, Aggregation Pipelines
   * DevOps: Git, GitHub Actions, Microsoft Azure App Service, Visual Studio, Postman, SSMS`,
+
+    mongodb: `<span class="text-emerald-400 font-bold">MongoDB Persistence:</span>
+  * Driver: C# MongoDB.Driver & BSON Object Serialization
+  * Capabilities: Document collections, compound indexing, aggregation pipelines, and polyglot persistence alongside SQL Server.`,
 
     experience: `<span class="text-amber-400 font-bold">Experience History:</span>
   1. .NET Full Stack Developer Intern at Luminar Technolab (Jan 2026 - Jun 2026)
