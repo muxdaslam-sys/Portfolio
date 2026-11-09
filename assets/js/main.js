@@ -260,17 +260,19 @@ function initRecruiterTerminal() {
   * Preferred Locations   : Remote, Hybrid, or On-Site Relocation`,
 
     match: `<span class="text-cyan-400 font-bold">Candidate Compatibility Check:</span>
-  * .NET / C# Web APIs   : 100% Match (VitalQ Symmetrical Service-Controller Architecture)
-  * Angular & Signals    : 100% Match (60fps OnPush change detection)
-  * Real-Time SignalR    : 100% Match (10,000+ concurrent WebSockets with JWT auto-rotation)
-  * SQL Server Indexing  : 100% Match (23 Filtered B-Trees, <0.5ms seeks)
-  * Azure & GitHub CI/CD : 100% Match (Automated MSBuild release pipelines)`,
+  * .NET / C# Web APIs   : 100% Match (VitalQ 1:1 Architecture, 63 Full-Stack Automated Tests)
+  * Angular & Signals    : 100% Match (60fps OnPush change detection & Jasmine unit tests)
+  * Real-Time SignalR    : 100% Match (10,000+ concurrent WebSockets, 30-worker race 0 collisions)
+  * SQL Server Indexing  : 100% Match (23 Filtered B-Trees, <0.5ms seeks, startup pool priming)
+  * Azure & GitHub CI/CD : 100% Match (Automated MSBuild release pipelines & /health probes)`,
 
     vitalq: `<span class="text-emerald-400 font-bold">VitalQ Architecture:</span>
-  * Stack: Angular (Signals & OnPush), ASP.NET Core Web API, SignalR, Entity Framework Core, SQL Server
-  * Concurrency: 10,000+ simultaneous real-time users
-  * Database: Sub-millisecond (<0.5ms) seeks via 23 Filtered B-Trees
-  * Engine: Dynamic CTAS 1-5 triage scoring & RxJS token concurrency mutex
+  * Stack: Angular 19 (Signals & OnPush), .NET 8 Web API, SignalR, EF Core, SQL Server
+  * Testing: 63 Full-Stack Tests (50 xUnit + 13 Jasmine | 100% Pass Rate)
+  * Concurrency: 10,000+ simultaneous users; 30-worker stress test with 0 collisions
+  * Throughput: 100K-token SLA benchmark in <500ms (~500,000+ evaluations/sec)
+  * Database: Sub-millisecond (<0.5ms) seeks via 23 Filtered B-Trees & startup pool priming
+  * Observability: Native ASP.NET Core health & liveness probes (/health, /health/live)
   * Repo: <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" class="text-cyan-400 underline">github.com/muxdaslam-sys/VitalQ</a>`,
 
     jobnest: `<span class="text-blue-400 font-bold">JobNest Recruitment Platform:</span>
@@ -290,7 +292,7 @@ function initRecruiterTerminal() {
   * Frontend: Angular, TypeScript, RxJS, HTML5, CSS3, Tailwind CSS, Bootstrap 5
   * Real-Time: SignalR WebSockets, Event-Driven Architecture, RxJS Concurrency Mutex
   * Database & NoSQL: Microsoft SQL Server, MongoDB, Filtered B-Tree Indexes, Stored Procedures, BSON, Aggregation Pipelines
-  * DevOps: Git, GitHub Actions, Microsoft Azure App Service, Visual Studio, Postman, SSMS`,
+  * DevOps & Testing: xUnit, Jasmine, Karma, Git, GitHub Actions, Microsoft Azure App Service, Visual Studio, Postman, SSMS`,
 
     mongodb: `<span class="text-emerald-400 font-bold">MongoDB Persistence:</span>
   * Driver: C# MongoDB.Driver & BSON Object Serialization

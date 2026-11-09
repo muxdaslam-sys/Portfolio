@@ -495,6 +495,9 @@
               <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-medium border border-emerald-500/20">
                 Hospital OPD &amp; Real-Time Queue System
               </span>
+              <span class="px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 text-xs font-medium border border-cyan-500/20 font-mono">
+                63/63 Tests Passing (100%)
+              </span>
             </div>
 
             <h3 class="text-xl sm:text-3xl font-heading font-bold text-white">
@@ -513,15 +516,19 @@
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span><strong>Clinical Engine:</strong> Built with UTC-normalized pacing stopwatch (<code class="text-cyan-300">parseUtcTimestamp</code>) eliminating timezone drift, plus a 3-strike absentee/no-show protocol with mandatory audit logs.</span>
+                <span><strong>Full-Stack Automated Testing &amp; Stress Tests:</strong> 63 automated tests (50 .NET 8 xUnit + 13 Angular Jasmine | 100% pass rate). Concurrency stress-tested via a 30-worker parallel thread race with 0 collisions and a 100K-token SLA benchmark processed in &lt;500ms (~500,000+ evaluations/sec).</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span><strong>RxJS Concurrency Mutex:</strong> Deduplicates parallel 401 refresh calls, preventing unexpected session logouts during simultaneous network bursts.</span>
+                <span><strong>Clinical Engine &amp; Anti-Starvation:</strong> Canadian Triage and Acuity Scale (CTAS Levels 1-5) evaluation with dynamic SLA wait-aging (+2 pts/min), a sequential collision-proof MRN generator scaling past 1M records, and a 3-strike absentee protocol with mandatory audit logs.</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span><strong>High-Performance Database:</strong> 23 physical filtered B-Tree indexes delivering sub-millisecond (&lt;0.5ms) queries and zero table scans.</span>
+                <span><strong>Enterprise Security &amp; Observability:</strong> HIPAA 15-minute workstation auto-lock running outside the Angular zone for 60fps rendering, client-IP rate limiting (10 req/min), physician room boundaries (HTTP 403), and native database health probes (<code class="text-cyan-300">/health</code>, <code class="text-cyan-300">/health/live</code>).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>High-Performance Database:</strong> 23 physical filtered B-Tree indexes delivering sub-millisecond (&lt;0.5ms) queries and zero table scans, paired with startup database connection pool pre-warming.</span>
               </li>
             </ul>
 
@@ -532,6 +539,8 @@
               <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">SignalR WebSockets</span>
               <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">SQL Server Express</span>
               <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-amber-300">Entity Framework Core</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">xUnit &amp; Jasmine (63 Tests)</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Health Probes (/health)</span>
               <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Tailwind CSS</span>
             </div>
 
@@ -559,16 +568,21 @@
               </div>
 
               <!-- High-Impact Engineering Metrics Grid -->
-              <div class="grid grid-cols-2 gap-2.5 font-mono">
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                  <span class="text-[10px] text-slate-400 block">WebSocket Concurrency</span>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono">
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <span class="text-[9px] text-slate-400 block">WebSockets</span>
                   <span class="text-base sm:text-lg font-bold text-cyan-400">10,000+</span>
-                  <span class="text-[10px] text-slate-400 block mt-0.5">Simultaneous Clients</span>
+                  <span class="text-[9px] text-slate-500 block mt-0.5">Live Clients</span>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                  <span class="text-[10px] text-slate-400 block">SQL Memory Seeks</span>
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                  <span class="text-[9px] text-slate-400 block">SQL Seeks</span>
                   <span class="text-base sm:text-lg font-bold text-emerald-400">&lt;0.5 ms</span>
-                  <span class="text-[10px] text-slate-400 block mt-0.5">23 Filtered B-Trees</span>
+                  <span class="text-[9px] text-slate-500 block mt-0.5">23 Filtered Trees</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 col-span-2 sm:col-span-1">
+                  <span class="text-[9px] text-slate-400 block">Automated Tests</span>
+                  <span class="text-base sm:text-lg font-bold text-purple-400">63 Tests</span>
+                  <span class="text-[9px] text-slate-500 block mt-0.5">100% Pass Rate</span>
                 </div>
               </div>
 
@@ -601,6 +615,16 @@
                   </div>
                   <p class="text-[11px] text-slate-400 leading-relaxed">
                     Algorithmic acuity scoring (Levels 1-5) based on vitals, paired with UTC-normalized pacing to eliminate timezone drift.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="flex items-center gap-2 text-cyan-300 font-semibold text-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>Full-Stack Testing &amp; Health Probes</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed">
+                    63 automated tests (50 xUnit + 13 Jasmine | 100% pass), 30-worker stress tests with 0 collisions, and native ASP.NET Core /health database readiness probes.
                   </p>
                 </div>
               </div>
@@ -1086,14 +1110,14 @@
           </p>
         </div>
 
-        <!-- 13. UI Systems & API Tooling -->
-        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="frontend realtime">
+        <!-- 13. Automated Testing & API Tooling -->
+        <div class="skill-card solid-card p-4 sm:p-5 space-y-2" data-category="backend frontend realtime">
           <div class="flex items-center justify-between">
-            <h4 class="font-bold text-white font-heading text-sm sm:text-base">UI Systems &amp; API Tooling</h4>
-            <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono">Tooling</span>
+            <h4 class="font-bold text-white font-heading text-sm sm:text-base">Automated Testing &amp; Tooling</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">63 Tests</span>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Tailwind CSS &amp; Bootstrap 5 responsive styling, Postman API contract test collections, Git branching workflows, and Visual Studio profiling.
+            Backend testing with .NET 8 xUnit, frontend unit testing with Jasmine &amp; headless Karma, Postman API contract testing, Git version control, and Visual Studio profiling.
           </p>
         </div>
 
@@ -1391,15 +1415,15 @@
             <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
             <div>
               <span class="text-white font-semibold block">ASP.NET Core Web API &amp; C# Architecture</span>
-              <span class="text-[11px] text-slate-400">Proven in VitalQ: Symmetrical services, rate limiting, and 1:1 clean controller mapping.</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: Symmetrical services, 63 automated tests (xUnit/Jasmine), rate limiting, and 1:1 clean controller mapping.</span>
             </div>
           </label>
 
           <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 cursor-pointer">
             <input type="checkbox" checked class="role-match-check mt-0.5 rounded accent-cyan-400">
             <div>
-              <span class="text-white font-semibold block">High-Concurrency SignalR WebSockets</span>
-              <span class="text-[11px] text-slate-400">Proven in VitalQ: 10,000+ simultaneous real-time hospital users with zero polling lag.</span>
+              <span class="text-white font-semibold block">High-Concurrency SignalR WebSockets &amp; Stress Testing</span>
+              <span class="text-[11px] text-slate-400">Proven in VitalQ: 10,000+ simultaneous real-time hospital users; 30-worker stress test with 0 race collisions.</span>
             </div>
           </label>
 
