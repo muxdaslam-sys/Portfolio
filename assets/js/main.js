@@ -260,18 +260,19 @@ function initRecruiterTerminal() {
   * Preferred Locations   : Remote, Hybrid, or On-Site Relocation`,
 
     match: `<span class="text-cyan-400 font-bold">Candidate Compatibility Check:</span>
-  * .NET / C# Web APIs   : 100% Match (VitalQ 1:1 Architecture, 63 Full-Stack Automated Tests)
+  * .NET / C# Web APIs   : 100% Match (VitalQ 1:1 Architecture, 66 Full-Stack Automated Tests)
   * Angular & Signals    : 100% Match (60fps OnPush change detection & Jasmine unit tests)
   * Real-Time SignalR    : 100% Match (10,000+ concurrent WebSockets, 30-worker race 0 collisions)
   * SQL Server Indexing  : 100% Match (23 Filtered B-Trees, <0.5ms seeks, startup pool priming)
   * Azure & DevOps CI/CD : 100% Match (Azure Container Apps, Docker, Redis, Automated Migrations & Health Probes)`,
 
     vitalq: `<span class="text-emerald-400 font-bold">VitalQ Architecture:</span>
-  * Cloud: Azure Container Apps (ACA), Serverless Azure SQL, Azure Redis Distributed Cache
+  * Cloud: Azure Container Apps (ACA), Serverless Azure SQL, Azure Key Vault, App Insights
   * Containers: Multi-stage Docker (.NET 8 Chiseled + Nginx Alpine &lt;25MB)
+  * Distributed Cache: L1 Memory + L2 Redis (ca-vitalq-redis) + SignalR Backplane
   * CI/CD: Automated GitHub Actions deploying with EF Core migrations & synthetic smoke tests
   * Stack: Angular 19 (Signals & OnPush), .NET 8 Web API, SignalR, EF Core
-  * Testing: 63 Full-Stack Tests (50 xUnit + 13 Jasmine | 100% Pass Rate)
+  * Testing: 66 Full-Stack Tests (53 xUnit + 13 Jasmine | 100% Pass Rate)
   * Concurrency: 10,000+ simultaneous users; 30-worker stress test with 0 collisions
   * Live URL: <a href="https://ca-vitalq-web.politeisland-88851c55.centralindia.azurecontainerapps.io" target="_blank" class="text-cyan-400 underline">ca-vitalq-web.azurecontainerapps.io</a>
   * Repo: <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" class="text-cyan-400 underline">github.com/muxdaslam-sys/VitalQ</a>`,
