@@ -244,7 +244,7 @@ function initRecruiterTerminal() {
   * <span class="text-cyan-400">help</span>         : Display this command index
   * <span class="text-cyan-400">notice</span>       : Check official notice period & availability
   * <span class="text-cyan-400">match</span>        : Verify candidate match against requirements
-  * <span class="text-cyan-400">vitalq</span>       : Deep dive into VitalQ (.NET + Angular + SignalR)
+  * <span class="text-cyan-400">vitalq</span>       : Deep dive into VitalQ (.NET 8 + Angular 19 + Azure Container Apps)
   * <span class="text-cyan-400">jobnest</span>      : JobNest ATS Architecture & Azure deployment
   * <span class="text-cyan-400">cozastore</span>    : CozaStore E-Commerce ERP & CI/CD summary
   * <span class="text-cyan-400">skills</span>       : Full-Stack technical competencies breakdown
@@ -264,7 +264,7 @@ function initRecruiterTerminal() {
   * Angular & Signals    : 100% Match (60fps OnPush change detection & Jasmine unit tests)
   * Real-Time SignalR    : 100% Match (10,000+ concurrent WebSockets, 30-worker race 0 collisions)
   * SQL Server Indexing  : 100% Match (23 Filtered B-Trees, <0.5ms seeks, startup pool priming)
-  * Azure & GitHub CI/CD : 100% Match (Automated MSBuild release pipelines & /health probes)`,
+  * Azure & DevOps CI/CD : 100% Match (Azure Container Apps, Docker, Redis, Automated Migrations & Health Probes)`,
 
     vitalq: `<span class="text-emerald-400 font-bold">VitalQ Architecture:</span>
   * Cloud: Azure Container Apps (ACA), Serverless Azure SQL, Azure Redis Distributed Cache
@@ -291,9 +291,9 @@ function initRecruiterTerminal() {
     skills: `<span class="text-cyan-400 font-bold">Technical Skills:</span>
   * Backend: C#, ASP.NET Core Web API, ASP.NET MVC 5, Entity Framework Core, ADO.NET, RESTful APIs, Swagger
   * Frontend: Angular, TypeScript, RxJS, HTML5, CSS3, Tailwind CSS, Bootstrap 5
-  * Real-Time: SignalR WebSockets, Event-Driven Architecture, RxJS Concurrency Mutex
+  * Real-Time: SignalR WebSockets, Redis Distributed Sync, Event-Driven Architecture, RxJS Concurrency Mutex
   * Database & NoSQL: Microsoft SQL Server, MongoDB, Filtered B-Tree Indexes, Stored Procedures, BSON, Aggregation Pipelines
-  * DevOps & Testing: xUnit, Jasmine, Karma, Git, GitHub Actions, Microsoft Azure App Service, Visual Studio, Postman, SSMS`,
+  * Cloud & DevOps: Azure Container Apps, Docker, Serverless Azure SQL, Redis Cache, GitHub Actions (CI/CD), xUnit, Jasmine, Postman, Git`,
 
     mongodb: `<span class="text-emerald-400 font-bold">MongoDB Persistence:</span>
   * Driver: C# MongoDB.Driver & BSON Object Serialization
