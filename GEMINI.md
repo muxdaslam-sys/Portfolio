@@ -8,26 +8,27 @@
 > **Master Resume Location**: `Resume/Master/` (`Muhammed_Aslam_Resume.html`, `Muhammed_Aslam_Resume.pdf`, `Muhammed_Aslam_Resume_ATS.md`)  
 > **Tailored Resumes Location**: `Resume/Tailored/` (Private, gitignored)  
 > **Public Downloadable Resume**: `assets/docs/Muhammed_Aslam_Resume.pdf` (Tracked in Git, SHA-256 byte-synced with Master)  
-> **Resume Constraints**: Strictly **1 Single Page** | Strictly **0 Em/En Dashes** (`—`, `–`)  
+> **Resume Constraints**: Strictly **1 Single Page** | Strictly **0 Em/En Dashes** (`—`, `–`) | Strictly **2-Line Summary** | Strictly **100% Truthful & Verifiable**  
 > **Flagship Project 1 (VitalQ)**: Live on Azure Container Apps (`ca-vitalq-web`), Serverless Azure SQL, Redis Cache, Azure Key Vault, App Insights | **66/66 Automated Tests (100% Pass Rate)**  
 > **Flagship Project 2 (JobNest)**: Live on Microsoft Azure App Service, ASP.NET MVC 5, Entity Framework 6, Automated CI/CD  
 > **Flagship Project 3 (CozaStore)**: Full-Stack E-Commerce & Retail ERP, ASP.NET Web Forms, ADO.NET, MSBuild CI  
 
 ---
 
-## 🚨 MANDATORY INVARIANT RULE: AUTOMATIC MEMORY UPDATE
+## 🚨 MANDATORY INVARIANT RULE: AUTONOMOUS DYNAMIC MEMORY UPDATE
 
 > [!IMPORTANT]
-> **CRITICAL WORKSPACE MANDATE — AUTOMATIC TASK COMPLETION SYNC:**  
-> Whenever **ANY** task, feature, bug fix, text adjustment, resume customization, or deployment is finished in this repository, **THIS `GEMINI.md` FILE MUST BE AUTOMATICALLY UPDATED** before concluding the agent turn.
+> **CRITICAL WORKSPACE MANDATE — ZERO USER PROMPTING REQUIRED:**  
+> **The user NEVER needs to ask, remind, or type "update GEMINI.md".**  
+> Every AI agent operating in this workspace is strictly required to **autonomously detect any modification** (code edit, text change, resume refinement, PDF compilation, test run, or deployment) and **dynamically update this `GEMINI.md` file before concluding the turn.**
 >
-> Every update to `GEMINI.md` must record:
+> Every dynamic update must record:
 > 1. **Timestamp & Commit Hash**: Date and short git commit hash.
-> 2. **Summary of Changes**: What was modified, added, or removed.
+> 2. **Summary of Changes**: What was modified, added, removed, or verified.
 > 3. **Updated Metrics**: Test counts, PDF page counts, file sizes, and verification outcomes.
 > 4. **Architectural Consistency**: Ensure project metrics match between the portfolio website, resume, and source repositories.
 >
-> **NO TASK IS CONSIDERED COMPLETE UNTIL `GEMINI.md` IS UPDATED AND COMMITTED.**
+> **NO TASK IS CONSIDERED COMPLETE UNTIL `GEMINI.md` IS AUTONOMOUSLY UPDATED AND COMMITTED.**
 
 ---
 
@@ -90,20 +91,26 @@ The portfolio at [`index.html`](file:///d:/Projects/Portfolio/index.html) is bui
 
 ## 3. Core Workspace Rules & Quality Invariants
 
-### Rule 1: Strict 1-Page Resume Constraint
-* The master resume must **NEVER** spill over onto page 2.
-* Printable height is strictly calibrated at `font-size: 8.5pt - 8.9pt`, `line-height: 1.19`, and `margin: 10mm 12mm`.
-* Any addition of bullet points or technical descriptions must be balanced by trimming redundant words to preserve the 1-page ceiling.
+### Rule 1: Strict 1-Page & Optical Balance (Zero Overflow, Zero Bottom Gaps)
+* Every resume (Master and Tailored) must fit on **EXACTLY 1 page**.
+* **No awkward white space exposure**: The vertical height must be calibrated so that content fills the page comfortably and symmetrically from header to footer without large blank areas or bottom margins.
+* Printable styling standard: `font-size: 8.5pt - 8.9pt`, `line-height: 1.18 - 1.22`, and margins calibrated at `4mm - 6mm` top/bottom and `10mm - 12mm` sides.
+* Any addition of bullet points or technical descriptions must be balanced by trimming redundant words to preserve the 1-page ceiling while eliminating excess empty space.
 
-### Rule 2: Zero Em/En Dash Policy (`—`, `–`)
+### Rule 2: Absolute Truthfulness & Codebase Verifiability (Zero Fake Claims)
+* **100% Truth Policy**: Every metric, technology, architecture pattern, test count, and responsibility listed in the resume, ATS documents, or portfolio must be **100% genuine, factual, and directly verifiable in the source code**.
+* **Zero fake statistics, zero inflated titles, and zero imaginary libraries**.
+* Every technical bullet point must be something Muhammed Aslam can defend, explain, and prove in high-level engineering interviews using the actual repositories (`VitalQ`, `JobNest`, `CozaStore`, `Luminar`, `Deccorlook`).
+
+### Rule 3: Zero Em/En Dash Policy (`—`, `–`)
 * To guarantee 100% ATS parser compatibility and prevent rendering corruption across different platforms, **NO em dashes (`—`) or en dashes (`–`) are allowed anywhere in the resume or ATS documents**.
 * Always use a standard keyboard hyphen (`-`) surrounded by spaces or clean parentheses.
 
-### Rule 3: Resume Privacy & Git Isolation
+### Rule 4: Resume Privacy & Git Isolation
 * The `Resume/` folder is listed in `.gitignore` to protect internal drafts, master templates, and private company-tailored resumes from public exposure.
 * The public download copy at `assets/docs/Muhammed_Aslam_Resume.pdf` is explicitly tracked in Git and must always remain byte-for-byte synced with `Resume/Master/Muhammed_Aslam_Resume.pdf`.
 
-### Rule 4: Headless Chrome PDF Rendering Standard
+### Rule 5: Headless Chrome PDF Rendering Standard
 * Never generate the resume PDF via manual browser "Print to PDF", which can introduce unwanted headers, footers, or margin shifts.
 * Always compile using headless Chrome CLI:
   ```powershell
@@ -114,11 +121,16 @@ The portfolio at [`index.html`](file:///d:/Projects/Portfolio/index.html) is bui
   node -e "const fs = require('fs'); const buf = fs.readFileSync('Resume/Master/Muhammed_Aslam_Resume.pdf'); const text = buf.toString('latin1'); console.log('Pages:', (text.match(/\/Type\s*\/Page\b/g)||[]).length, 'Dashes:', (text.match(/[\u2013\u2014]/g)||[]).length);"
   ```
 
-### Rule 5: Tailwind CSS Build Workflow
+### Rule 6: Tailwind CSS Build Workflow
 * Whenever new Tailwind utility classes are introduced into `index.html`, rebuild the minified production stylesheet:
   ```powershell
   node "D:\Projects\VitalQ\web\node_modules\tailwindcss\lib\cli.js" -i src/input.css -o assets/css/tailwind.min.css --minify --config tailwind.config.js
   ```
+
+### Rule 7: Strict 2-Line Professional Summary
+* The Professional Summary at the top of the resume must ALWAYS be strictly **2 lines** (no more, no less).
+* It must be concise, executive, and high-impact, focusing on core stack (.NET 8, Angular 19, Azure Cloud, C#) and full-lifecycle SDLC ownership without redundant test numbers or filler words.
+* Keeping the summary strictly at 2 lines preserves vital vertical space for deep technical project engineering bullets and maintains optical page balance.
 
 ---
 
