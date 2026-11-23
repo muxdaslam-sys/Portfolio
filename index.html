@@ -512,11 +512,15 @@
             <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span><strong>SignalR WebSocket Hub:</strong> Multi-channel groups (<code class="text-cyan-300">doctor</code>, <code class="text-cyan-300">nurse-station</code>, <code class="text-cyan-300">patient</code>, <code class="text-cyan-300">admin-dashboard</code>) with dynamic JWT access-token rotation for resilient hospital Wi-Fi reconnects.</span>
+                <span><strong>SignalR &amp; Distributed Redis Sync:</strong> Multi-channel groups (<code class="text-cyan-300">doctor</code>, <code class="text-cyan-300">nurse-station</code>, <code class="text-cyan-300">patient</code>, <code class="text-cyan-300">admin-dashboard</code>) with Redis backplane and dynamic JWT rotation for resilient reconnects, reducing polling by 95%.</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 <span><strong>Full-Stack Automated Testing &amp; Stress Tests:</strong> 63 automated tests (50 .NET 8 xUnit + 13 Angular Jasmine | 100% pass rate). Concurrency stress-tested via a 30-worker parallel thread race with 0 collisions and a 100K-token SLA benchmark processed in &lt;500ms (~500,000+ evaluations/sec).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span><strong>Azure Cloud Deployment &amp; CI/CD:</strong> Containerized via multi-stage Docker (.NET 8 Chiseled &amp; Nginx Alpine) deploying to Azure Container Apps with automated EF Core Azure SQL migrations, GitHub Actions CI/CD, and synthetic smoke test probes.</span>
               </li>
               <li class="flex items-start gap-2">
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -526,29 +530,29 @@
                 <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 <span><strong>Enterprise Security &amp; Observability:</strong> HIPAA 15-minute workstation auto-lock running outside the Angular zone for 60fps rendering, client-IP rate limiting (10 req/min), physician room boundaries (HTTP 403), and native database health probes (<code class="text-cyan-300">/health</code>, <code class="text-cyan-300">/health/live</code>).</span>
               </li>
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span><strong>High-Performance Database:</strong> 23 physical filtered B-Tree indexes delivering sub-millisecond (&lt;0.5ms) queries and zero table scans, paired with startup database connection pool pre-warming.</span>
-              </li>
             </ul>
 
             <!-- Tech Badges -->
             <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">ASP.NET Core Web API</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">Angular &amp; Modern Signals</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">SignalR WebSockets</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">SQL Server Express</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-amber-300">Entity Framework Core</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">.NET 8 Web API</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-purple-300">Angular 19 Standalone</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">Azure Container Apps</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Docker (Chiseled)</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">SignalR &amp; Redis</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-blue-300">Azure SQL Database</span>
               <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-emerald-300">xUnit &amp; Jasmine (63 Tests)</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Health Probes (/health)</span>
-              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">Tailwind CSS</span>
+              <span class="px-2 sm:px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] sm:text-xs font-mono text-cyan-300">GitHub Actions CI/CD</span>
             </div>
 
             <!-- Actions -->
             <div class="flex flex-wrap items-center gap-3 pt-3">
-              <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105">
+              <a href="https://ca-vitalq-web.politeisland-88851c55.centralindia.azurecontainerapps.io" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all hover:scale-105">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span>Live Azure Cloud Demo</span>
+              </a>
+              <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs border border-slate-700 transition-all hover:scale-105">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                <span>View VitalQ Repository</span>
+                <span>View GitHub Repository</span>
               </a>
               <span class="text-xs text-slate-500 font-mono">1:1 Architecture &amp; Monorepo</span>
             </div>

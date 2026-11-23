@@ -267,12 +267,13 @@ function initRecruiterTerminal() {
   * Azure & GitHub CI/CD : 100% Match (Automated MSBuild release pipelines & /health probes)`,
 
     vitalq: `<span class="text-emerald-400 font-bold">VitalQ Architecture:</span>
-  * Stack: Angular 19 (Signals & OnPush), .NET 8 Web API, SignalR, EF Core, SQL Server
+  * Cloud: Azure Container Apps (ACA), Serverless Azure SQL, Azure Redis Distributed Cache
+  * Containers: Multi-stage Docker (.NET 8 Chiseled + Nginx Alpine &lt;25MB)
+  * CI/CD: Automated GitHub Actions deploying with EF Core migrations & synthetic smoke tests
+  * Stack: Angular 19 (Signals & OnPush), .NET 8 Web API, SignalR, EF Core
   * Testing: 63 Full-Stack Tests (50 xUnit + 13 Jasmine | 100% Pass Rate)
   * Concurrency: 10,000+ simultaneous users; 30-worker stress test with 0 collisions
-  * Throughput: 100K-token SLA benchmark in <500ms (~500,000+ evaluations/sec)
-  * Database: Sub-millisecond (<0.5ms) seeks via 23 Filtered B-Trees & startup pool priming
-  * Observability: Native ASP.NET Core health & liveness probes (/health, /health/live)
+  * Live URL: <a href="https://ca-vitalq-web.politeisland-88851c55.centralindia.azurecontainerapps.io" target="_blank" class="text-cyan-400 underline">ca-vitalq-web.azurecontainerapps.io</a>
   * Repo: <a href="https://github.com/muxdaslam-sys/VitalQ" target="_blank" class="text-cyan-400 underline">github.com/muxdaslam-sys/VitalQ</a>`,
 
     jobnest: `<span class="text-blue-400 font-bold">JobNest Recruitment Platform:</span>

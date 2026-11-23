@@ -1,3 +1,6 @@
 ﻿.DS_Store
 Thumbs.db
 *.tmp
+
+# Private resume master and company-tailored variations
+Resume/
