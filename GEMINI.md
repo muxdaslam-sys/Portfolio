@@ -180,21 +180,18 @@ When applying for specific roles (e.g., Fintech, Healthcare, Cloud/DevOps, Enter
 
 ### Active Tailored Resume Registry:
 * **Captarius (`Resume/Tailored/Captarius/`)**:
-  * Role Target: Software Engineer .NET / Full Stack Developer.
-  * Files: `Muhammed_Aslam_Resume.html`, `Muhammed_Aslam_Resume.pdf` (103,621 bytes, 1 page, 0 dashes), `Muhammed_Aslam_Resume_ATS.md`.
-  * Highlights: Clean Architecture, .NET 8, ASP.NET Core, Angular 19, SQL Server, Docker, Agile/Scrum, and VitalQ 66-test suite.
+  * Role Target: Software Engineer (.NET) / Full Stack Developer.
+  * Files: `Muhammed_Aslam_Resume.html`, `Muhammed_Aslam_Resume.pdf` (102,319 bytes, 1 page, 0 dashes), `Muhammed_Aslam_Resume_ATS.md`.
+  * Highlights: Clean Architecture, .NET 8, ASP.NET Core, Angular 19, SQL Server, Docker, Agile/Scrum, Microservices concepts, and VitalQ 66-test suite.
 
 ---
 
 ## 6. Changelog & Synchronization History
 
-### 2026-11-23 — Master Resume Deep-Dive, Captarius Tailored Variant & Memory Integration
-* **User Master Resume Refinement**: Expanded VitalQ under *Featured Technical Project* to 8 comprehensive engineering bullets detailing Clean Architecture, 23 Filtered B-Trees (<0.5ms seeks), multi-stage Docker builds, CTAS clinical engine, zero-secret Azure Key Vault, Angular 19 Signals, 66 automated tests, Serilog, and Polly retry resiliency.
-* **Experience & Education Expansion**: Detailed Agile/Scrum sprint cycles and testing at Luminar Technolab, web modernization metrics at Deccorlook, and relevant BCA coursework.
-* **Captarius Tailored Resume Created**: Established `Resume/Tailored/Captarius/` with dedicated HTML, ATS Markdown, and 1-page PDF (103,621 bytes, 0 dashes).
-* **Public PDF Synchronization**: Synced master PDF to `assets/docs/Muhammed_Aslam_Resume.pdf` (103,383 bytes, strictly 1 page, 0 dashes, SHA-256 matched).
-* **`GEMINI.md` Project Memory Established**: Created permanent single source of truth with the mandatory automatic update rule for all future tasks.
-* **Commit `6440ae6`**: Synchronized VitalQ's full 66-test suite (53 xUnit + 13 Jasmine), Azure Key Vault zero-secret managed identity, Application Insights distributed tracing, and L1/L2 Redis distributed cache across the master resume, ATS Markdown, and portfolio website.
-* **Commit `58de957`**: Aligned portfolio skills cards, bento metrics, and terminal CLI commands with Azure Container Apps and Docker containerization.
-* **Commit `f0f8eb2`**: Shortened professional summary to 2 executive lines, integrated VitalQ Azure cloud architecture, restructured internal `Resume/` workspace into `Master/` and `Tailored/`, and added `Resume/` to `.gitignore`.
-* **Cleanup**: Deleted external redundant `D:\Projects\Resume` directory after migrating all master documents into `d:\Projects\Portfolio\Resume\Master\`.
+### 2026-11-23 — Captarius Tailored Resume & Single-Page Optical Balance Alignment
+* **Captarius Tailored Resume Created**: Established `Resume/Tailored/Captarius/` with dedicated HTML, ATS Markdown, and 1-page PDF (102,319 bytes, strictly 1 page, 0 dashes) tailored specifically for the Software Engineer (.NET) role at Luminar/Captarius (Kochi).
+* **Sole Featured Project (VitalQ Deep-Dive)**: Streamlined technical projects to exclusively feature VitalQ across 8 comprehensive architectural bullets covering SignalR WebSockets, Redis caching, 23 Filtered B-Trees (<0.5ms seeks), multi-stage Docker builds, CTAS clinical engine, zero-secret Azure Key Vault, Angular 19 Signals/mutex, 66 automated tests, Serilog, and Polly retry resiliency.
+* **Optical Page Balancing & Typography Calibration**: Solved bottom whitespace gaps by expanding Luminar Technolab experience to 5 enterprise bullets (adding xUnit testing and Agile Scrum) and Deccorlook to 5 bullets, calibrating margins (`5mm 10mm 4mm 10mm`) and typography (`8.85pt / 1.22`) to fill ~91-94% of printable page height without overflow.
+* **Strict 2-Line Summary Enforced (Rule 7)**: Calibrated executive professional summary to strictly 2 lines across Master (`332 chars`) and Captarius (`337 chars`) versions.
+* **Public PDF Byte Synchronization**: Synced master PDF to `assets/docs/Muhammed_Aslam_Resume.pdf` (102,505 bytes, strictly 1 page, 0 dashes, SHA-256 byte-synced with Master).
+* **Programmatic Dash & Page Verification**: Programmatically verified 0 em-dashes, 0 en-dashes, and exactly 1 page across all HTML, ATS Markdown, and PDF files.
